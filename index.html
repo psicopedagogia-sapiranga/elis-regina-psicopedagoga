@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elis Regina — Psicopedagoga</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --lilas-escuro: #6B4FA0;
+      --lilas-medio: #9B7DC8;
+      --lilas-claro: #C9B8E8;
+      --lilas-suave: #F0EAF9;
+      --dourado: #C9A84C;
+      --dourado-claro: #E8C97A;
+      --dourado-suave: #FBF4E0;
+      --branco: #ffffff;
+      --texto: #2D1F4E;
+      --texto-sec: #6B5688;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: var(--texto); background: var(--branco); line-height: 1.7; }
+
+    /* NAV */
+    nav { background: var(--branco); border-bottom: 0.5px solid var(--lilas-claro); padding: 0.75rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { font-size: 16px; font-weight: 600; color: var(--lilas-escuro); display: flex; align-items: center; gap: 8px; }
+    .nav-logo i { color: var(--dourado); font-size: 18px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { font-size: 14px; color: var(--lilas-medio); text-decoration: none; }
+    .nav-links a:hover { color: var(--lilas-escuro); }
+
+    /* HERO */
+    .hero { background: linear-gradient(140deg, #3D1F7A 0%, #6B4FA0 55%, #8B6AB8 100%); padding: 4rem 2rem 5rem; text-align: center; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; border-radius: 50%; background: rgba(201,168,76,0.12); }
+    .hero::after { content: ''; position: absolute; bottom: -80px; left: -40px; width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.05); }
+    .hero-badge { display: inline-block; background: rgba(201,168,76,0.22); color: var(--dourado-claro); font-size: 12px; padding: 5px 16px; border-radius: 20px; border: 0.5px solid rgba(201,168,76,0.5); margin-bottom: 1rem; letter-spacing: 0.5px; position: relative; z-index: 1; }
+    .hero h1 { font-size: 3rem; font-weight: 600; color: #fff; letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 0.4rem; position: relative; z-index: 1; }
+    .hero-sub { font-size: 1.05rem; color: var(--lilas-claro); margin-bottom: 0.8rem; position: relative; z-index: 1; }
+    .hero-linha { width: 60px; height: 2px; background: var(--dourado); margin: 0 auto 1.2rem; border-radius: 2px; position: relative; z-index: 1; }
+    .hero-desc { font-size: 0.95rem; color: rgba(255,255,255,0.75); max-width: 500px; margin: 0 auto 2rem; line-height: 1.65; position: relative; z-index: 1; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--dourado) 0%, var(--dourado-claro) 100%); color: #2D1F4E; font-size: 15px; font-weight: 600; padding: 14px 30px; border-radius: 30px; border: none; cursor: pointer; text-decoration: none; position: relative; z-index: 1; }
+    .hero-cta:hover { opacity: 0.9; }
+    .hero-cta i { font-size: 20px; }
+
+    /* DIVIDER */
+    .divider { height: 3px; background: linear-gradient(90deg, var(--lilas-claro), var(--dourado), var(--lilas-medio)); }
+
+    /* SECTIONS */
+    .section { padding: 3.5rem 2rem; }
+    .section-alt { background: var(--lilas-suave); }
+    .container { max-width: 800px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 600; color: var(--dourado); letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .section-title { font-size: 1.7rem; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 0.5rem; }
+    .section-desc { font-size: 0.95rem; color: var(--texto-sec); line-height: 1.75; margin-bottom: 1.5rem; }
+
+    /* SOBRE */
+    .avatar-circle { width: 80px; height: 80px; border-radius: 50%; background: var(--lilas-suave); display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 600; color: var(--lilas-escuro); margin: 0 auto 1.5rem; border: 3px solid var(--dourado); }
+    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .sobre-card { background: var(--branco); border: 0.5px solid var(--lilas-claro); border-top: 3px solid var(--dourado); border-radius: 12px; padding: 1.2rem; }
+    .sobre-card i { font-size: 24px; color: var(--lilas-escuro); margin-bottom: 0.5rem; display: block; }
+    .sobre-card h4 { font-size: 14px; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 4px; }
+    .sobre-card p { font-size: 13px; color: var(--texto-sec); line-height: 1.55; }
+
+    /* DIFERENCIAIS */
+    .dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+    .dif-item { background: var(--branco); border: 0.5px solid var(--lilas-claro); border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center; }
+    .dif-icon { width: 52px; height: 52px; border-radius: 50%; background: var(--lilas-suave); border: 1.5px solid var(--dourado-claro); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; }
+    .dif-icon i { font-size: 24px; color: var(--lilas-escuro); }
+    .dif-item h4 { font-size: 14px; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 4px; }
+    .dif-item p { font-size: 12.5px; color: var(--texto-sec); line-height: 1.5; }
+
+    /* SERVIÇOS */
+    .servicos-grid { display: grid; gap: 1rem; }
+    .servico-item { background: var(--branco); border: 0.5px solid var(--lilas-claro); border-left: 3px solid var(--dourado); border-radius: 0 12px 12px 0; padding: 1.2rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .servico-icon { width: 46px; height: 46px; background: var(--lilas-suave); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .servico-icon i { font-size: 22px; color: var(--lilas-escuro); }
+    .servico-item h4 { font-size: 14px; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 4px; }
+    .servico-item p { font-size: 13px; color: var(--texto-sec); line-height: 1.6; }
+
+    /* MODALIDADES */
+    .modalidades { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .mod-card { border: 1px solid var(--lilas-claro); border-radius: 12px; padding: 1.5rem; background: var(--branco); text-align: center; }
+    .mod-card i { font-size: 30px; color: var(--dourado); display: block; margin-bottom: 0.6rem; }
+    .mod-card h4 { font-size: 14px; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 4px; }
+    .mod-card p { font-size: 13px; color: var(--texto-sec); }
+
+    /* LOCALIZAÇÃO */
+    .loc-placeholder { background: var(--branco); border: 2px dashed var(--lilas-claro); border-radius: 12px; padding: 3rem 2rem; text-align: center; }
+    .loc-placeholder i { font-size: 36px; color: var(--dourado); display: block; margin-bottom: 0.75rem; }
+    .loc-placeholder p { font-size: 14px; color: var(--texto-sec); }
+    .loc-placeholder strong { color: var(--lilas-escuro); }
+
+    /* CONTATO */
+    .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #fff; font-size: 15px; font-weight: 600; padding: 15px 32px; border-radius: 30px; border: none; cursor: pointer; text-decoration: none; max-width: 380px; margin: 1.5rem auto 0; }
+    .whatsapp-btn:hover { background: #1da851; }
+    .whatsapp-btn i { font-size: 22px; }
+
+    .form-sep { margin-top: 2.5rem; padding-top: 2rem; border-top: 0.5px solid var(--lilas-claro); }
+    .form-sep h3 { font-size: 16px; font-weight: 600; color: var(--lilas-escuro); margin-bottom: 4px; }
+    .form-sep p { font-size: 13px; color: var(--texto-sec); margin-bottom: 1.5rem; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label { font-size: 12px; color: var(--lilas-medio); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+    .form-group input, .form-group select, .form-group textarea {
+      font-size: 14px; padding: 11px 14px; border-radius: 8px;
+      border: 0.5px solid var(--lilas-claro); background: var(--branco);
+      color: var(--texto); width: 100%; font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--lilas-medio); box-shadow: 0 0 0 3px rgba(155,125,200,0.15);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .submit-btn { display: block; width: 100%; background: linear-gradient(135deg, var(--lilas-escuro) 0%, var(--lilas-medio) 100%); color: #fff; font-size: 15px; font-weight: 600; padding: 14px; border-radius: 30px; border: none; cursor: pointer; margin-top: 1.25rem; font-family: inherit; }
+    .submit-btn:hover { opacity: 0.9; }
+    .success-msg { display: none; background: var(--lilas-suave); border: 0.5px solid var(--lilas-claro); border-radius: 8px; padding: 14px; font-size: 14px; color: var(--lilas-escuro); text-align: center; margin-top: 1rem; }
+
+    /* FOOTER */
+    footer { background: linear-gradient(135deg, #2D1F4E 0%, #4A2E7A 100%); color: var(--lilas-claro); text-align: center; padding: 2.5rem 2rem; font-size: 13px; }
+    footer strong { color: var(--dourado-claro); }
+    footer a { color: var(--dourado-claro); text-decoration: none; }
+    footer p { margin-top: 6px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.2rem; }
+      .sobre-grid, .dif-grid, .modalidades, .form-grid { grid-template-columns: 1fr; }
+      .dif-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo"><i class="ti ti-brain"></i>Elis Regina</span>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge"><i class="ti ti-sparkles" style="font-size:11px; margin-right:4px;"></i>Psicopedagogia com cuidado</div>
+  <h1>Elis Regina</h1>
+  <p class="hero-sub">Professora Psicopedagoga &bull; Neuropsicopedagogia</p>
+  <div class="hero-linha"></div>
+  <p class="hero-desc">Atendimento psicopedagógico personalizado para crianças, jovens e adultos — presencial em Sapiranga ou online, com escuta ativa e compromisso real com cada aluno.</p>
+  <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20%F0%9F%92%9C%20Tudo%20bem%3F%0A%0AGostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20psicopedag%C3%B3gicos%20e%20agendar%20uma%20conversa.%20Poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%3F" class="hero-cta" target="_blank">
+    <i class="ti ti-brand-whatsapp"></i>Agendar atendimento
+  </a>
+</div>
+
+<div class="divider"></div>
+
+<section class="section" id="sobre">
+  <div class="container">
+    <p class="section-label">Quem sou eu</p>
+    <h2 class="section-title">Sobre Elis Regina</h2>
+    <div class="avatar-circle">ER</div>
+    <p class="section-desc">
+      Olá! Sou Elis Regina, professora psicopedagoga apaixonada pelo desenvolvimento humano. Tenho 49 anos, sou casada há 32 anos, mãe de três filhos maravilhosos e moradora de Sapiranga. Com formação em <strong>Letras (Português e Espanhol)</strong> e pós-graduação em <strong>Neuropsicopedagogia</strong>, dedico minha carreira a entender e apoiar cada aluno de forma única, acolhedora e eficaz.<br><br>
+      Acredito profundamente que cada pessoa aprende de um jeito especial — e é por isso que meu atendimento é sempre individualizado, empático e voltado para o desenvolvimento integral de quem me procura.
+    </p>
+    <div class="sobre-grid">
+      <div class="sobre-card">
+        <i class="ti ti-school"></i>
+        <h4>Formação em Letras</h4>
+        <p>Português e Espanhol — base sólida no ensino de línguas e literatura.</p>
+      </div>
+      <div class="sobre-card">
+        <i class="ti ti-brain"></i>
+        <h4>Neuropsicopedagogia</h4>
+        <p>Pós-graduação com foco nos processos cognitivos e de aprendizagem.</p>
+      </div>
+      <div class="sobre-card">
+        <i class="ti ti-heart-handshake"></i>
+        <h4>Atendimento humanizado</h4>
+        <p>Sensibilidade, escuta ativa e respeito ao ritmo de cada aluno.</p>
+      </div>
+      <div class="sobre-card">
+        <i class="ti ti-users"></i>
+        <h4>Parceria com a família</h4>
+        <p>Acompanhamento próximo com pais e responsáveis durante todo o processo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <p class="section-label">Diferenciais</p>
+    <h2 class="section-title">Por que escolher Elis Regina?</h2>
+    <div class="dif-grid">
+      <div class="dif-item">
+        <div class="dif-icon"><i class="ti ti-ear"></i></div>
+        <h4>Escuta ativa</h4>
+        <p>Cada aluno é ouvido com atenção plena e sem julgamentos.</p>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon"><i class="ti ti-target"></i></div>
+        <h4>Foco em resultados</h4>
+        <p>Estratégias planejadas para conquistas reais e duradouras.</p>
+      </div>
+      <div class="dif-item">
+        <div class="dif-icon"><i class="ti ti-puzzle"></i></div>
+        <h4>Método personalizado</h4>
+        <p>Metodologia adaptada ao perfil único de cada pessoa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicos">
+  <div class="container">
+    <p class="section-label">O que ofereço</p>
+    <h2 class="section-title">Serviços psicopedagógicos</h2>
+    <p class="section-desc">Atendimentos pensados para identificar, compreender e superar as dificuldades de aprendizagem com cuidado e ciência.</p>
+    <div class="servicos-grid">
+      <div class="servico-item">
+        <div class="servico-icon"><i class="ti ti-clipboard-text"></i></div>
+        <div>
+          <h4>Avaliação psicopedagógica</h4>
+          <p>Mapeamento detalhado das dificuldades de aprendizagem, considerando aspectos cognitivos, emocionais e funcionais.</p>
+        </div>
+      </div>
+      <div class="servico-item">
+        <div class="servico-icon"><i class="ti ti-route"></i></div>
+        <div>
+          <h4>Intervenção psicopedagógica</h4>
+          <p>Plano estruturado com atividades e estratégias específicas para desenvolver habilidades e superar bloqueios na aprendizagem.</p>
+        </div>
+      </div>
+      <div class="servico-item">
+        <div class="servico-icon"><i class="ti ti-chart-line"></i></div>
+        <div>
+          <h4>Acompanhamento individualizado</h4>
+          <p>Sessões periódicas com monitoramento contínuo do progresso, adaptando o método conforme a evolução de cada aluno.</p>
+        </div>
+      </div>
+      <div class="servico-item">
+        <div class="servico-icon"><i class="ti ti-book-2"></i></div>
+        <div>
+          <h4>Reforço em Português e Espanhol</h4>
+          <p>Apoio especializado nas disciplinas de língua portuguesa, espanhol e literatura, com abordagem clara e contextualizada.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modalidades">
+      <div class="mod-card">
+        <i class="ti ti-building-community"></i>
+        <h4>Presencial</h4>
+        <p>Atendimentos em Sapiranga, RS — endereço a confirmar em breve.</p>
+      </div>
+      <div class="mod-card">
+        <i class="ti ti-video"></i>
+        <h4>Online</h4>
+        <p>Sessões por videochamada, acessíveis de qualquer lugar do Brasil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="localizacao">
+  <div class="container">
+    <p class="section-label">Onde fica</p>
+    <h2 class="section-title">Localização</h2>
+    <p class="section-desc">Atendimento presencial em Sapiranga — endereço detalhado será disponibilizado em breve.</p>
+    <div class="loc-placeholder">
+      <i class="ti ti-map-pin"></i>
+      <p><strong>Sapiranga, Rio Grande do Sul</strong></p>
+      <p style="margin-top:6px;">Endereço completo em breve. Entre em contato pelo WhatsApp para mais informações sobre o local de atendimento.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contato">
+  <div class="container">
+    <p class="section-label">Fale comigo</p>
+    <h2 class="section-title">Agendar atendimento</h2>
+    <p class="section-desc">Prefere falar pelo WhatsApp? Clique no botão abaixo. Ou preencha o formulário e retorno em até 24 horas!</p>
+    <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20%F0%9F%92%9C%20Tudo%20bem%3F%0A%0AGostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20psicopedag%C3%B3gicos%20e%20agendar%20uma%20conversa.%20Poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%3F" class="whatsapp-btn" target="_blank">
+      <i class="ti ti-brand-whatsapp"></i>
+      WhatsApp — (98) 98404-2188
+    </a>
+    <div class="form-sep">
+      <h3>Formulário de agendamento</h3>
+      <p>Preencha os dados abaixo e entro em contato em breve.</p>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" placeholder="Seu nome" />
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" placeholder="(00) 00000-0000" />
+        </div>
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" placeholder="seu@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="modalidade">Modalidade preferida</label>
+          <select id="modalidade">
+            <option value="">Selecione...</option>
+            <option>Presencial — Sapiranga</option>
+            <option>Online</option>
+            <option>Sem preferência</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="servico">Tipo de atendimento</label>
+          <select id="servico">
+            <option value="">Selecione...</option>
+            <option>Avaliação psicopedagógica</option>
+            <option>Intervenção psicopedagógica</option>
+            <option>Acompanhamento individualizado</option>
+            <option>Reforço em Português / Espanhol</option>
+            <option>Ainda não sei — quero conversar</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="mensagem">Mensagem (opcional)</label>
+          <textarea id="mensagem" placeholder="Conte brevemente sobre o que você precisa..."></textarea>
+        </div>
+      </div>
+      <button class="submit-btn" onclick="enviarFormulario()">Solicitar agendamento</button>
+      <div class="success-msg" id="success-msg">
+        <i class="ti ti-check"></i> Mensagem enviada! Elis Regina entrará em contato em breve.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Elis Regina</strong> — Professora Psicopedagoga</p>
+  <p>Neuropsicopedagogia &bull; Letras (Português e Espanhol) &bull; Sapiranga, RS</p>
+  <p style="margin-top:12px;"><a href="https://wa.me/55984042188">(98) 98404-2188</a></p>
+</footer>
+
+<script>
+  function enviarFormulario() {
+    const nome = document.getElementById('nome').value.trim();
+    const telefone = document.getElementById('telefone').value.trim();
+    if (!nome || !telefone) { alert('Por favor, preencha ao menos seu nome e telefone.'); return; }
+    const mensagem = document.getElementById('mensagem').value.trim();
+    const servico = document.getElementById('servico').value;
+    const modalidade = document.getElementById('modalidade').value;
+    let texto = `Olá, Elis Regina! Me chamo ${nome} e gostaria de agendar um atendimento.`;
+    if (servico) texto += ` Interesse: ${servico}.`;
+    if (modalidade) texto += ` Modalidade: ${modalidade}.`;
+    if (mensagem) texto += ` Observação: ${mensagem}`;
+    window.open(`https://wa.me/55984042188?text=${encodeURIComponent(texto)}`, '_blank');
+    document.getElementById('success-msg').style.display = 'block';
+  }
+</script>
+</body>
+</html>
