@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Página principal (index.html) -->
   <url>
     <loc>https://psicopedagogia-sapiranga.github.io/elis-regina-psicopedagoga/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Página renomeada (elis-regina.html) -->
+  <url>
+    <loc>https://psicopedagogia-sapiranga.github.io/elis-regina-psicopedagoga/elis-regina.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Adicione novas entradas <url> aqui quando adicionar novas páginas ao repositório -->
 
 </urlset>
