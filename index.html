@@ -1,3 +1,9 @@
+# 
+
+**URL:** https://raw.githubusercontent.com/psicopedagogia-sapiranga/elis-regina-psicopedagoga/main/index.html
+
+---
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -268,224 +274,287 @@
       padding: 16px 36px; border-radius: 30px; text-decoration: none;
       box-shadow: 0 4px 18px rgba(37,211,102,0.4);
     }
-    .wa-btn-grande:hover { background: #1da851; }
-    .wa-btn-grande i { font-size: 22px; }
-    .form-sep { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--lilas-claro); }
-    .form-sep h3 { font-size: 1.2rem; color: var(--lilas); margin-bottom: 4px; }
-    .form-sep > p { font-size: 13.5px; color: var(--cinza); margin-bottom: 1.5rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 11.5px; color: var(--lilas-medio); font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
-    .form-group input, .form-group select, .form-group textarea {
-      font-size: 14px; padding: 12px 14px; border-radius: 10px;
-      border: 1.5px solid var(--lilas-claro); background: var(--branco);
-      color: var(--roxo-escuro); width: 100%; font-family: 'Inter', sans-serif;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--lilas-medio);
-      box-shadow: 0 0 0 3px rgba(155,125,200,0.18);
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; }
-    .submit-btn {
-      display: block; width: 100%;
-      background: linear-gradient(135deg, var(--lilas), var(--lilas-medio));
-      color: #fff; font-size: 15px; font-weight: 700;
-      padding: 15px; border-radius: 30px; border: none;
-      cursor: pointer; margin-top: 1.25rem;
-      font-family: 'Inter', sans-serif;
-      box-shadow: 0 4px 14px rgba(107,79,160,0.3);
-    }
-    .submit-btn:hover { opacity: 0.9; }
-    .success-msg {
-      display: none; background: var(--lilas-suave);
-      border: 1px solid var(--lilas-claro); border-radius: 10px;
-      padding: 14px; font-size: 14px; color: var(--lilas);
-      text-align: center; margin-top: 1rem;
-    }
+    .wa-btn-grande:hover { background: #1da851; transform: translateY(-2px); }
 
-    /* ── FOOTER ────────────────────────────────────────────── */
-    footer {
-      background: linear-gradient(135deg, #1E1338, #2D1F4E);
-      color: var(--lilas-claro); text-align: center;
-      padding: 3rem 2rem; font-size: 13px;
-    }
-    footer strong { color: var(--dourado-cla); }
-    footer a { color: var(--dourado-cla); text-decoration: none; }
-    footer p { margin-top: 6px; }
-    .footer-divider { width: 40px; height: 2px; background: var(--dourado); margin: 1rem auto; border-radius: 2px; }
+    footer { background: var(--lilas-suave); padding: 2rem; text-align: center; border-top: 1px solid var(--lilas-claro); }
+    footer p { font-size: 12px; color: var(--cinza-claro); }
 
     /* ── RESPONSIVO ────────────────────────────────────────── */
-    @media (max-width: 680px) {
-      nav { padding: 0.75rem 1.2rem; }
-      .nav-links { display: none; }
-      .hero { padding: 3.5rem 1.5rem 4rem; }
-      .section { padding: 3rem 1.5rem; }
-      .sobre-layout { grid-template-columns: 1fr; gap: 1.5rem; }
-      .sobre-grid { grid-template-columns: 1fr; }
+    @media (max-width: 740px) {
+      .nav-hamburger { display: flex; }
+      .nav-links, .nav-wa { display: none; }
+      .hero { padding: 4rem 1.5rem; }
+      .sobre-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .sobre-foto { padding: 2rem 1rem; }
       .dif-grid { grid-template-columns: 1fr; }
-      .modalidades { grid-template-columns: 1fr; }
       .depo-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: 1; }
-      .hero-ctas { flex-direction: column; align-items: center; }
-      .wa-fixo { bottom: 16px; right: 16px; }
+      .modalidades { grid-template-columns: 1fr; }
     }
+
+    /* HAMBURGUER */
+    .nav-hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      gap: 5px; width: 40px; height: 40px; cursor: pointer;
+      background: none; border: none; padding: 6px;
+    }
+    .nav-hamburger span {
+      display: block; height: 2px; background: var(--lilas);
+      border-radius: 2px; transition: all 0.3s;
+    }
+
+    /* DRAWER LATERAL */
+    .drawer-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45); z-index: 200;
+    }
+    .drawer-overlay.open { display: block; }
+    .drawer {
+      position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
+      background: var(--branco); z-index: 201;
+      transition: left 0.3s ease; padding: 0;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.12);
+    }
+    .drawer.open { left: 0; }
+    .drawer-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--lilas-claro);
+    }
+    .drawer-logo { font-family: 'Playfair Display', serif; font-size: 15px; color: var(--lilas); font-weight: 600; }
+    .drawer-close {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--lilas-suave); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .drawer-close i { font-size: 20px; color: var(--lilas); }
+    .drawer-links { padding: 1.5rem 1.5rem; display: flex; flex-direction: column; gap: 0.3rem; }
+    .drawer-links a {
+      font-size: 15px; color: var(--cinza); text-decoration: none;
+      font-weight: 500; padding: 0.85rem 1rem; border-radius: 10px;
+      display: flex; align-items: center; gap: 10px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .drawer-links a i { font-size: 18px; color: var(--lilas-medio); }
+    .drawer-links a:hover { background: var(--lilas-suave); color: var(--lilas); }
+    .drawer-cta {
+      margin: 1rem 1.5rem 0;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: #25D366; color: #fff;
+      font-size: 14px; font-weight: 700;
+      padding: 13px 20px; border-radius: 24px; text-decoration: none;
+    }
+    .drawer-cta i { font-size: 18px; }
+    
   </style>
 </head>
 <body>
 
-<!-- BOTÃO WA FIXO -->
-<a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="wa-fixo" target="_blank" aria-label="Falar no WhatsApp">
-  <i class="ti ti-brand-whatsapp"></i>
-  <span class="wa-fixo-tooltip">Agendar pelo WhatsApp</span>
-</a>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    Elis Regina
-    <span>Psicopedagoga</span>
-  </div>
-  <div class="nav-links">
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#depoimentos">Depoimentos</a>
-    <a href="#contato">Contato</a>
-  </div>
-  <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="nav-wa" target="_blank">
-    <i class="ti ti-brand-whatsapp" style="font-size:15px;"></i> Agendar
+  <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="wa-fixo" target="_blank">
+    <i class="ti ti-brand-whatsapp"></i>
+    <span class="wa-fixo-tooltip">Agendar atendimento</span>
   </a>
-</nav>
 
-<!-- HERO -->
-<div class="hero">
-  <p class="hero-eyebrow">Psicopedagogia</p>
-  <h1>Seu filho tem dificuldade<br>para aprender? <em>Existe solução.</em></h1>
-  <div class="hero-linha"></div>
-  <p class="hero-sub">Atendimentos psicopedagógicos individualizados para crianças, jovens e adultos. Identificamos a raiz das dificuldades de aprendizagem e construímos um caminho personalizado para cada pessoa.</p>
-  <div class="hero-ctas">
-    <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="btn-primary" target="_blank">
-      <i class="ti ti-brand-whatsapp"></i> Agendar avaliação agora
-    </a>
-    <a href="#servicos" class="btn-secondary">
-      <i class="ti ti-info-circle"></i> Conhecer os serviços
-    </a>
-  </div>
-  <div class="hero-badges">
-    <span class="hero-badge-item"><i class="ti ti-map-pin"></i> Presencial em Sapiranga</span>
-    <span class="hero-badge-item"><i class="ti ti-video"></i> Atendimento online</span>
-    <span class="hero-badge-item"><i class="ti ti-certificate"></i> Pós-graduação em Psicopedagogia</span>
-  </div>
-</div>
+  <nav>
+    <div class="nav-logo">
+      <i class="ti ti-brain" style="font-size: 24px;"></i>
+      <div>Elis Regina <span>Psicopedagoga</span></div>
+    </div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="nav-wa" target="_blank">WhatsApp</a>
 
-<div class="divider"></div>
+      <button class="nav-hamburger" onclick="abrirDrawer()" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
 
-<!-- SOBRE -->
-<section class="section" id="sobre">
-  <div class="container">
-    <p class="section-label">Quem sou eu</p>
-    <h2 class="section-title">Sobre Elis Regina</h2>
-    <div class="sobre-layout">
-      <div class="sobre-foto">
-        <img src="Elis Regina.jpeg" alt="Elis Regina Bairros Rodrigues" class="avatar-foto">
-        <h3>Elis Regina Bairros Rodrigues</h3>
-        <p>Psicopedagoga<br>Sapiranga, RS</p>
-        <div style="margin-top:1rem;">
-          <span class="sobre-tag">Pós-grad. Psicopedagogia</span>
-          <span class="sobre-tag">+10 anos de experiência</span>
+    <!-- DRAWER -->
+    <div class="drawer-overlay" id="overlay" onclick="fecharDrawer()"></div>
+    <div class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-logo">Elis Regina</span>
+        <button class="drawer-close" onclick="fecharDrawer()"><i class="ti ti-x"></i></button>
+      </div>
+      <div class="drawer-links">
+        <a href="#sobre" onclick="fecharDrawer()"><i class="ti ti-user"></i> Sobre</a>
+        <a href="#para-quem" onclick="fecharDrawer()"><i class="ti ti-users"></i> Para quem</a>
+        <a href="#servicos" onclick="fecharDrawer()"><i class="ti ti-clipboard-text"></i> Serviços</a>
+        <a href="#beneficios" onclick="fecharDrawer()"><i class="ti ti-trending-up"></i> Benefícios</a>
+        <a href="#depoimentos" onclick="fecharDrawer()"><i class="ti ti-star"></i> Depoimentos</a>
+        <a href="#localizacao" onclick="fecharDrawer()"><i class="ti ti-map-pin"></i> Localização</a>
+        <a href="#contato" onclick="fecharDrawer()"><i class="ti ti-mail"></i> Contato</a>
+      </div>
+      <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="drawer-cta" target="_blank" onclick="fecharDrawer()">
+        <i class="ti ti-brand-whatsapp"></i> Agendar pelo WhatsApp
+      </a>
+    </div>
+
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">Sapiranga e Online</span>
+      <h1>Apoio especializado para superar <em>desafios no aprendizado</em></h1>
+      <div class="hero-linha"></div>
+      <p class="hero-sub">Atendimento psicopedagógico clínico para crianças, adolescentes e adultos. Redescubra o prazer de aprender com estratégias personalizadas.</p>
+      
+      <div class="hero-ctas">
+        <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="btn-primary" target="_blank">
+          <i class="ti ti-brand-whatsapp"></i> Agendar consulta
+        </a>
+        <a href="#servicos" class="btn-secondary">Ver serviços</a>
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge-item"><i class="ti ti-check"></i> Avaliação Completa</div>
+        <div class="hero-badge-item"><i class="ti ti-check"></i> Plano Individual</div>
+        <div class="hero-badge-item"><i class="ti ti-check"></i> Suporte à Família</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="sobre-layout">
+        <div class="sobre-foto">
+          <img src="Elis Regina.jpeg" alt="Elis Regina" class="avatar-foto" />
+          <h3>Elis Regina</h3>
+          <p>Psicopedagoga Clínica</p>
+          <div style="margin-top: 1rem;">
+            <span class="sobre-tag">Aprendizagem</span>
+            <span class="sobre-tag">Desenvolvimento</span>
+          </div>
+        </div>
+        <div class="sobre-texto">
+          <p class="section-label">Sobre mim</p>
+          <h2 class="section-title">Elis Regina</h2>
+          <p>Sou psicopedagoga apaixonada por ajudar pessoas a superarem barreiras no processo de aprendizagem. Meu trabalho foca em identificar como cada indivíduo aprende e criar caminhos para que o conhecimento flua de forma leve e eficaz.</p>
+          <p>Com atendimento humanizado em Sapiranga e modalidade online, ofereço suporte especializado para quem busca compreender e transformar suas dificuldades em conquistas.</p>
+          
+          <div class="sobre-grid">
+            <div class="sobre-card">
+              <h4>Foco Clínico</h4>
+              <p>Intervenções baseadas em evidências para dificuldades de leitura, escrita e raciocínio.</p>
+            </div>
+            <div class="sobre-card">
+              <h4>Visão Integral</h4>
+              <p>Olhar atento aos aspectos emocionais e sociais que impactam o aprender.</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="sobre-texto">
-        <p>Há mais de 10 anos me dedico a entender por que algumas crianças e jovens encontram tantas barreiras para aprender, mesmo sendo esforçados e inteligentes. Essa pergunta guiou toda a minha carreira.</p>
-        <p>Com pós-graduação em <strong>Psicopedagogia</strong>, aprendi que cada dificuldade tem uma origem, e cada aluno tem um jeito único de aprender. Meu trabalho é descobrir esse jeito e ajudar a destravar o potencial que está ali.</p>
-        <p>Sou casada há 32 anos, mãe de três filhos e moradora de Sapiranga. Falo com as famílias como quem já esteve do outro lado da mesa, preocupada com o futuro de um filho.</p>
-        <div class="sobre-grid">
-          <div class="sobre-card">
-            <h4>Psicopedagogia</h4>
-            <p>Pós-graduação voltada para compreender como cada pessoa aprende e identificar as dificuldades que surgem nesse processo.</p>
-          </div>
-          <div class="sobre-card">
-            <h4>Investigação aprofundada</h4>
-            <p>Busco entender as raízes das dificuldades de aprendizagem de forma holística e profunda.</p>
-          </div>
-          <div class="sobre-card">
-            <h4>Atendimento humanizado</h4>
-            <p>Escuta ativa, empatia e respeito ao ritmo de cada aluno em todo o processo.</p>
-          </div>
-          <div class="sobre-card">
-            <h4>Parceria com a família</h4>
-            <p>Pais e responsáveis são parte do processo. O acompanhamento é próximo e transparente.</p>
-          </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <p class="section-label" style="text-align: center;">Por que escolher</p>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">Diferenciais do atendimento</h2>
+      <div class="dif-grid">
+        <div class="dif-item">
+          <div class="dif-icon"><i class="ti ti-target"></i></div>
+          <h4>Personalização</h4>
+          <p>Cada plano de intervenção é único, respeitando o ritmo e as necessidades de cada paciente.</p>
+        </div>
+        <div class="dif-item">
+          <div class="dif-icon"><i class="ti ti-home-heart"></i></div>
+          <h4>Acolhimento</h4>
+          <p>Ambiente seguro e tranquilo para que o paciente se sinta à vontade para evoluir.</p>
+        </div>
+        <div class="dif-item">
+          <div class="dif-icon"><i class="ti ti-device-laptop"></i></div>
+          <h4>Flexibilidade</h4>
+          <p>Atendimento presencial em Sapiranga ou online com a mesma qualidade e dedicação.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="section section-bege" id="para-quem">
+  <div class="container">
+    <p class="eyebrow">Para quem é o atendimento</p>
+    <h2 class="sec-title">Quem pode ser <span>atendido</span></h2>
+    <p class="sec-desc">O atendimento psicopedagógico é indicado para pessoas de qualquer idade que enfrentem dificuldades no aprendizado ou no desenvolvimento.</p>
+    <div class="pq-grid">
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-book-off"></i></div>
+        <div>
+          <h4>Dificuldades de aprendizagem</h4>
+          <p>Crianças e jovens com dificuldades em leitura, escrita ou matemática que não avançam no ritmo esperado para a idade.</p>
+        </div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-brain"></i></div>
+        <div>
+          <h4>TDAH</h4>
+          <p>Pessoas com Transtorno de Déficit de Atenção e Hiperatividade que precisam de estratégias para foco, organização e desempenho.</p>
+        </div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-puzzle"></i></div>
+        <div>
+          <h4>TEA — Transtorno do Espectro Autista</h4>
+          <p>Atendimento especializado com foco no desenvolvimento cognitivo, comunicação e aprendizagem.</p>
+        </div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-user"></i></div>
+        <div>
+          <h4>Adultos</h4>
+          <p>Adultos com dificuldades de aprendizagem não identificadas na infância, problemas de memória ou concentração.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIAIS -->
-<section class="section section-alt">
-  <div class="container">
-    <p class="section-label">Por que escolher</p>
-    <h2 class="section-title">O que faz a diferença no meu trabalho</h2>
-    <p class="section-desc">Psicopedagogia não é reforço escolar. É investigação, escuta e construção de um caminho personalizado para cada pessoa.</p>
-    <div class="dif-grid">
-      <div class="dif-item">
-        <div class="dif-icon"><i class="ti ti-ear"></i></div>
-        <h4>Escuta antes de tudo</h4>
-        <p>Cada atendimento começa ouvindo o aluno e a família, sem julgamentos e sem pressa.</p>
-      </div>
-      <div class="dif-item">
-        <div class="dif-icon"><i class="ti ti-search"></i></div>
-        <h4>Investigação da raiz</h4>
-        <p>Buscamos a causa real das dificuldades, não apenas os sintomas visíveis em sala de aula.</p>
-      </div>
-      <div class="dif-item">
-        <div class="dif-icon"><i class="ti ti-puzzle"></i></div>
-        <h4>Plano sob medida</h4>
-        <p>Cada intervenção psicopedagógica é construída para uma única pessoa.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVIÇOS -->
 <section class="section" id="servicos">
   <div class="container">
-    <p class="section-label">O que ofereço</p>
-    <h2 class="section-title">Serviços</h2>
-    <p class="section-desc">Os atendimentos psicopedagógicos são indicados para quem enfrenta dificuldades de leitura, escrita, concentração, memória, rendimento escolar, ou qualquer outra barreira no aprendizado.</p>
-    <div class="servicos-grid">
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-clipboard-text"></i></div>
+    <p class="eyebrow">O que ofereço</p>
+    <h2 class="sec-title">Serviços <span>psicopedagógicos</span></h2>
+    <p class="sec-desc">Atendimentos planejados individualmente, do diagnóstico ao acompanhamento contínuo.</p>
+    <div class="sv-grid">
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-clipboard-text"></i></div>
         <div>
           <h4>Avaliação psicopedagógica</h4>
-          <p>Mapeamento detalhado das dificuldades de aprendizagem, considerando aspectos cognitivos e emocionais. A avaliação é o ponto de partida para um plano eficaz.</p>
+          <p>Mapeamento detalhado das dificuldades de aprendizagem, considerando aspectos cognitivos e emocionais. A avaliação identifica a raiz do problema e orienta todo o processo seguinte.</p>
         </div>
       </div>
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-route"></i></div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-route"></i></div>
         <div>
           <h4>Intervenção psicopedagógica</h4>
           <p>Atendimento contínuo com estratégias específicas para desenvolver habilidades, superar bloqueios e transformar a relação do aluno com o aprendizado.</p>
         </div>
       </div>
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-chart-line"></i></div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-chart-line"></i></div>
         <div>
           <h4>Acompanhamento individualizado</h4>
-          <p>Sessões regulares com monitoramento do progresso e ajustes constantes no método, garantindo que o aluno continue evoluindo no próprio ritmo.</p>
+          <p>Sessões regulares com monitoramento do progresso e ajustes constantes no plano de atendimento, garantindo que o aluno continue evoluindo no próprio ritmo.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-users"></i></div>
+        <div>
+          <h4>Orientação para pais e escola</h4>
+          <p>Suporte direto às famílias e, quando necessário, articulação com a escola para que as estratégias psicopedagógicas sejam aplicadas em todos os contextos do aluno.</p>
         </div>
       </div>
     </div>
-    <div class="modalidades">
-      <div class="mod-card">
+    <div class="modal-grid">
+      <div class="modal-card">
         <i class="ti ti-building-community"></i>
         <h4>Presencial</h4>
-        <p>Atendimentos em Sapiranga, RS, na Rua General Lima e Silva, 42, Sala C.</p>
+        <p>Rua General Lima e Silva, 42, Sala C — Sapiranga, RS</p>
       </div>
-      <div class="mod-card">
+      <div class="modal-card">
         <i class="ti ti-video"></i>
         <h4>Online</h4>
         <p>Sessões por videochamada para qualquer cidade do Brasil, com a mesma qualidade do atendimento presencial.</p>
@@ -494,164 +563,127 @@
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
-<section class="section section-alt" id="depoimentos">
+<section class="section section-verde" id="beneficios">
   <div class="container">
-    <p class="section-label">Histórias reais</p>
-    <h2 class="section-title">O que as famílias dizem</h2>
-    <p class="section-desc">Cada aluno tem uma história. Abaixo, algumas das transformações acompanhadas ao longo dos atendimentos psicopedagógicos.</p>
-    <div class="depo-grid">
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Minha filha tinha 9 anos e já dizia que era burra. Depois de alguns meses com a Elis, ela passou a gostar de ler. Ver essa transformação foi emocionante demais.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">AM</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Ana Martins</div>
-            <div class="depo-desc">Mãe de aluna, 9 anos</div>
-          </div>
-        </div>
+    <p class="eyebrow">O que muda na prática</p>
+    <h2 class="sec-title">Benefícios do <span>acompanhamento</span></h2>
+    <p class="sec-desc">O atendimento psicopedagógico gera transformações que vão muito além da sala de aula.</p>
+    <div class="benef-grid">
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-trending-up"></i></div>
+        <h4>Melhor desempenho escolar</h4>
+        <p>O aluno entende como aprende e desenvolve estratégias que funcionam para ele.</p>
       </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Eu achava que meu filho era preguiçoso. A Elis identificou dificuldades reais que ninguém tinha visto antes. O acompanhamento mudou completamente a vida dele na escola.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">RS</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Roberto Silva</div>
-            <div class="depo-desc">Pai de aluno, 14 anos</div>
-          </div>
-        </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-focus"></i></div>
+        <h4>Mais foco e organização</h4>
+        <p>Habilidades de atenção, planejamento e execução de tarefas se desenvolvem com o acompanhamento.</p>
       </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Fiz o atendimento online morando em Porto Alegre. A qualidade foi a mesma. A Elis me fez sentir que eu estava sendo realmente ouvida, não só avaliada.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">CF</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Camila Ferreira</div>
-            <div class="depo-desc">Adulta, atendimento online</div>
-          </div>
-        </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-heart"></i></div>
+        <h4>Apoio emocional</h4>
+        <p>O aluno se reconecta com a própria capacidade e recupera a confiança em si mesmo.</p>
       </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Nos primeiros 15 minutos da avaliação, a Elis já percebeu coisas que professores de anos não tinham notado. O trabalho dela é impressionante.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">LO</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Luciana Oliveira</div>
-            <div class="depo-desc">Mãe de aluno, 10 anos</div>
-          </div>
-        </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-users"></i></div>
+        <h4>Família mais preparada</h4>
+        <p>Pais e responsáveis entendem melhor o filho e sabem como apoiá-lo no dia a dia.</p>
       </div>
-    </div>
-    <p class="depo-aviso">Depoimentos ilustrativos. Os nomes foram alterados para preservar a privacidade dos atendidos.</p>
-  </div>
-</section>
-
-<!-- LOCALIZAÇÃO -->
-<section class="section" id="localizacao">
-  <div class="container">
-    <p class="section-label">Onde fica</p>
-    <h2 class="section-title">Localização</h2>
-    <p class="section-desc">Atendimento presencial em Sapiranga ou online para qualquer cidade do Brasil.</p>
-    <div class="loc-box">
-      <i class="ti ti-map-pin"></i>
-      <p><strong>Rua General Lima e Silva, 42, Sala C</strong></p>
-      <p>CEP 93800-060, Sapiranga, RS</p>
-      <p style="margin-top:12px; font-size:13px; color:var(--cinza-claro);">Atendimento online disponível para todo o Brasil.</p>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section class="section section-alt" id="contato">
-  <div class="container">
-    <div class="cta-box">
-      <h3>Pronto para dar o primeiro passo?</h3>
-      <p>Uma conversa de 15 minutos já pode esclarecer muita coisa. Entre em contato agora pelo WhatsApp e entendo como posso ajudar.</p>
-      <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="wa-btn-grande" target="_blank">
-        <i class="ti ti-brand-whatsapp"></i> Falar agora no WhatsApp
-      </a>
-    </div>
-    <div class="form-sep">
-      <h3>Ou preencha o formulário</h3>
-      <p>Preencha os dados abaixo e entro em contato em até 24 horas.</p>
-      <div class="form-grid">
-        <div class="form-group">
-          <label for="nome">Nome completo</label>
-          <input type="text" id="nome" placeholder="Seu nome" />
-        </div>
-        <div class="form-group">
-          <label for="telefone">Telefone / WhatsApp</label>
-          <input type="tel" id="telefone" placeholder="(00) 00000-0000" />
-        </div>
-        <div class="form-group">
-          <label for="email">E-mail</label>
-          <input type="email" id="email" placeholder="seu@email.com" />
-        </div>
-        <div class="form-group">
-          <label for="modalidade">Modalidade preferida</label>
-          <select id="modalidade">
-            <option value="">Selecione...</option>
-            <option>Presencial em Sapiranga</option>
-            <option>Online</option>
-            <option>Sem preferência</option>
-          </select>
-        </div>
-        <div class="form-group full">
-          <label for="servico">Tipo de atendimento</label>
-          <select id="servico">
-            <option value="">Selecione...</option>
-            <option>Avaliação psicopedagógica</option>
-            <option>Intervenção psicopedagógica</option>
-            <option>Acompanhamento individualizado</option>
-            <option>Ainda não sei, quero conversar</option>
-          </select>
-        </div>
-        <div class="form-group full">
-          <label for="mensagem">Conte um pouco sobre a situação (opcional)</label>
-          <textarea id="mensagem" placeholder="Ex: minha filha tem 8 anos e tem dificuldade na leitura..."></textarea>
-        </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-school"></i></div>
+        <h4>Integração com a escola</h4>
+        <p>A escola recebe orientações práticas para criar um ambiente mais adequado ao aluno.</p>
       </div>
-      <button class="submit-btn" onclick="enviarFormulario()">Solicitar atendimento</button>
-      <div class="success-msg" id="success-msg">
-        <i class="ti ti-check"></i> Mensagem enviada! Elis Regina entrará em contato em breve.
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-star"></i></div>
+        <h4>Autoestima fortalecida</h4>
+        <p>Cada avanço é reconhecido. O aluno aprende a valorizar o próprio progresso.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <p><strong>Elis Regina Bairros Rodrigues</strong></p>
-  <p>Psicopedagoga</p>
-  <div class="footer-divider"></div>
-  <p>Rua General Lima e Silva, 42, Sala C, CEP 93800-060, Sapiranga, RS</p>
-  <p style="margin-top:10px;"><a href="https://wa.me/55984042188">(55) 98404-2188</a></p>
-  <p style="margin-top:16px; font-size:11px; color:rgba(255,255,255,0.3);">Psicopedagogia em Sapiranga e online</p>
-</footer>
+  <section class="section section-alt" id="depoimentos">
+    <div class="container">
+      <p class="section-label" style="text-align: center;">Depoimentos</p>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 2rem;">O que dizem as famílias</h2>
+      <div class="depo-grid">
+        <div class="depo-card">
+          <div class="depo-aspas">“</div>
+          <div class="depo-texto">A Elis foi fundamental para o desenvolvimento do meu filho. Ele tinha muita resistência com a leitura e hoje já se sente muito mais confiante e motivado.</div>
+          <div class="depo-autor">
+            <div class="depo-avatar">M</div>
+            <div>
+              <div class="depo-estrelas">★★★★★</div>
+              <div class="depo-nome">Mariana S.</div>
+              <div class="depo-desc">Mãe de aluno</div>
+            </div>
+          </div>
+        </div>
+        <div class="depo-card">
+          <div class="depo-aspas">“</div>
+          <div class="depo-texto">O atendimento online superou minhas expectativas. A Elis consegue manter o foco e a interação de uma forma incrível, mesmo à distância.</div>
+          <div class="depo-autor">
+            <div class="depo-avatar">R</div>
+            <div>
+              <div class="depo-estrelas">★★★★★</div>
+              <div class="depo-nome">Ricardo F.</div>
+              <div class="depo-desc">Pai de aluno</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="depo-aviso">* Nomes preservados para manter a privacidade dos pacientes.</p>
+    </div>
+  </section>
 
-<script>
-  function enviarFormulario() {
-    const nome = document.getElementById('nome').value.trim();
-    const telefone = document.getElementById('telefone').value.trim();
-    if (!nome || !telefone) { alert('Por favor, preencha ao menos seu nome e telefone.'); return; }
-    const mensagem = document.getElementById('mensagem').value.trim();
-    const servico = document.getElementById('servico').value;
-    const modalidade = document.getElementById('modalidade').value;
-    let texto = `Olá, Elis! Me chamo ${nome} e gostaria de agendar um atendimento.`;
-    if (servico) texto += ` Interesse: ${servico}.`;
-    if (modalidade) texto += ` Modalidade: ${modalidade}.`;
-    if (mensagem) texto += ` Situação: ${mensagem}`;
-    window.open(`https://wa.me/55984042188?text=${encodeURIComponent(texto)}`, '_blank');
-    document.getElementById('success-msg').style.display = 'block';
-  }
-</script>
+  <section class="section" id="localizacao">
+    <div class="container">
+      <p class="section-label" style="text-align: center;">Onde estou</p>
+      <h2 class="section-title" style="text-align: center; margin-bottom: 2.5rem;">Localização e Contato</h2>
+      <div class="loc-box">
+        <i class="ti ti-map-pin"></i>
+        <strong>Consultório em Sapiranga</strong>
+        <p>Rua General Lima e Silva, 42, Sala C<br>Sapiranga — RS</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contato">
+    <div class="container">
+      <div class="cta-box">
+        <h3>Vamos conversar?</h3>
+        <p>Tire suas dúvidas ou agende uma avaliação inicial. Estou à disposição para ajudar você ou seu filho.</p>
+        <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="wa-btn-grande" target="_blank">
+          <i class="ti ti-brand-whatsapp"></i> Chamar no WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Elis Regina — Psicopedagoga. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    
+    function abrirDrawer() {
+      document.getElementById('drawer').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function fecharDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    
+    function enviar() {
+      // Simulação de envio (apenas exemplo)
+      alert('Mensagem enviada com sucesso!');
+    }
+  </script>
 </body>
 </html>
