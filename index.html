@@ -4,14 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="2LxFBETbwOt5YBITE9PMIwlBR1Of9dM9tcmOIOK4yyI" />
-  <meta name="description" content="Elis Regina, psicopedagoga em Sapiranga. Atendimento especializado para crianças, jovens e adultos com dificuldades de aprendizagem. Presencial e online." />
-  <meta name="keywords" content="psicopedagogia, dificuldades de aprendizagem, Sapiranga, atendimento online" />
-  <title>Elis Regina — Psicopedagoga em Sapiranga</title>
+  <meta name="description" content="Avaliação e intervenção psicopedagógica em Sapiranga para crianças com dificuldades de aprendizagem. Agende uma consulta com Elis Regina." />
+  <meta name="keywords" content="psicopedagogia, dificuldades de aprendizagem, Sapiranga, atendimento online, avaliação psicopedagógica" />
+  <meta name="author" content="Elis Regina Bairros Rodrigues" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Elis Regina | Psicopedagoga em Sapiranga - RS" />
+  <meta property="og:description" content="Atendimentos psicopedagógicos especializados para crianças, jovens e adultos com dificuldades de aprendizagem." />
+  <meta property="og:type" content="website" />
+  <title>Elis Regina | Psicopedagoga em Sapiranga - RS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.11.0/dist/tabler-icons.min.css" />
   <style>
+    /* ══════════════════════════════════════════════════════════
+       RESET E CONFIGURAÇÕES GLOBAIS
+       ══════════════════════════════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     :root {
       --lilas:        #7B5EA7;
       --lilas-medio:  #9B7DC8;
@@ -24,326 +33,1163 @@
       --cinza:        #5A4575;
       --cinza-claro:  #8A7AA0;
       --sombra:       rgba(107, 79, 160, 0.10);
+      --bege-claro:   #F9F5F0;
+      --verde-claro:  #E8F4F0;
     }
-    html { scroll-behavior: smooth; }
+    
+    html { 
+      scroll-behavior: smooth;
+    }
+    
     body {
       font-family: 'Inter', Arial, sans-serif;
       color: var(--roxo-escuro);
       background: var(--branco);
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+    
     h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
-
-    /* ── BOTÃO WA FIXO ─────────────────────────────────────── */
+    
+    /* ══════════════════════════════════════════════════════════
+       BOTÃO WHATSAPP FIXO
+       ══════════════════════════════════════════════════════════ */
     .wa-fixo {
-      position: fixed; bottom: 24px; right: 24px; z-index: 999;
-      width: 58px; height: 58px; border-radius: 50%;
-      background: #25D366; display: flex; align-items: center; justify-content: center;
+      position: fixed; 
+      bottom: 24px; 
+      right: 24px; 
+      z-index: 999;
+      width: 58px; 
+      height: 58px; 
+      border-radius: 50%;
+      background: #25D366; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
       box-shadow: 0 4px 18px rgba(37,211,102,0.45);
-      text-decoration: none; transition: transform 0.2s;
+      text-decoration: none; 
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .wa-fixo:hover { transform: scale(1.08); }
-    .wa-fixo i { font-size: 28px; color: #fff; }
+    
+    .wa-fixo:hover { 
+      transform: scale(1.08);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+    }
+    
+    .wa-fixo i { 
+      font-size: 28px; 
+      color: #fff; 
+    }
+    
     .wa-fixo-tooltip {
-      position: absolute; right: 68px; white-space: nowrap;
-      background: var(--roxo-escuro); color: #fff;
-      font-family: 'Inter', sans-serif; font-size: 13px;
-      padding: 6px 12px; border-radius: 8px; opacity: 0; pointer-events: none;
+      position: absolute; 
+      right: 68px; 
+      white-space: nowrap;
+      background: var(--roxo-escuro); 
+      color: #fff;
+      font-family: 'Inter', sans-serif; 
+      font-size: 13px;
+      padding: 6px 12px; 
+      border-radius: 8px; 
+      opacity: 0; 
+      pointer-events: none;
       transition: opacity 0.2s;
     }
-    .wa-fixo:hover .wa-fixo-tooltip { opacity: 1; }
+    
+    .wa-fixo:hover .wa-fixo-tooltip { 
+      opacity: 1; 
+    }
 
-    /* ── NAV ───────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       NAVEGAÇÃO
+       ══════════════════════════════════════════════════════════ */
     nav {
       background: var(--branco);
       border-bottom: 1px solid var(--lilas-claro);
       padding: 0.85rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 100;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between;
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--lilas); display: flex; align-items: center; gap: 8px; }
-    .nav-logo span { font-family: 'Inter', sans-serif; font-size: 11px; color: var(--cinza-claro); font-weight: 500; display: block; margin-top: -2px; }
-    .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a { font-size: 13px; color: var(--cinza); text-decoration: none; font-weight: 500; }
-    .nav-links a:hover { color: var(--lilas); }
-    .nav-wa { display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: #fff; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; text-decoration: none; }
-    .nav-wa:hover { background: #1da851; }
+    
+    .nav-logo { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 17px; 
+      color: var(--lilas); 
+      display: flex; 
+      align-items: center; 
+      gap: 8px; 
+    }
+    
+    .nav-logo span { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 11px; 
+      color: var(--cinza-claro); 
+      font-weight: 500; 
+      display: block; 
+      margin-top: -2px; 
+    }
+    
+    .nav-links { 
+      display: flex; 
+      gap: 1.8rem; 
+    }
+    
+    .nav-links a { 
+      font-size: 13px; 
+      color: var(--cinza); 
+      text-decoration: none; 
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    .nav-links a:hover { 
+      color: var(--lilas); 
+    }
+    
+    .nav-wa { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 6px; 
+      background: #25D366; 
+      color: #fff; 
+      font-size: 13px; 
+      font-weight: 600; 
+      padding: 8px 16px; 
+      border-radius: 20px; 
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    
+    .nav-wa:hover { 
+      background: #1da851; 
+    }
 
-    /* ── HERO ──────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       HERO SECTION
+       ══════════════════════════════════════════════════════════ */
     .hero {
       background: linear-gradient(140deg, #2D1F4E 0%, #5B3D8A 50%, #7B5EA7 100%);
-      padding: 5rem 2rem 5.5rem; text-align: center;
-      position: relative; overflow: hidden;
+      padding: 5rem 2rem 5.5rem; 
+      text-align: center;
+      position: relative; 
+      overflow: hidden;
     }
+    
     .hero::before {
-      content: ''; position: absolute; top: -80px; right: -80px;
-      width: 300px; height: 300px; border-radius: 50%;
+      content: ''; 
+      position: absolute; 
+      top: -80px; 
+      right: -80px;
+      width: 300px; 
+      height: 300px; 
+      border-radius: 50%;
       background: rgba(201,168,76,0.10);
     }
+    
     .hero::after {
-      content: ''; position: absolute; bottom: -100px; left: -60px;
-      width: 350px; height: 350px; border-radius: 50%;
+      content: ''; 
+      position: absolute; 
+      bottom: -100px; 
+      left: -60px;
+      width: 350px; 
+      height: 350px; 
+      border-radius: 50%;
       background: rgba(255,255,255,0.04);
     }
+    
     .hero-eyebrow {
-      display: inline-block; color: var(--dourado-cla);
-      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-      text-transform: uppercase; margin-bottom: 1.2rem;
-      position: relative; z-index: 1;
+      display: inline-block; 
+      color: var(--dourado-cla);
+      font-size: 12px; 
+      font-weight: 600; 
+      letter-spacing: 1.5px;
+      text-transform: uppercase; 
+      margin-bottom: 1.2rem;
+      position: relative; 
+      z-index: 1;
     }
+    
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
-      color: #fff; line-height: 1.2; margin-bottom: 1.2rem;
-      position: relative; z-index: 1; max-width: 680px; margin-left: auto; margin-right: auto;
+      color: #fff; 
+      line-height: 1.2; 
+      margin-bottom: 1.2rem;
+      position: relative; 
+      z-index: 1; 
+      max-width: 680px; 
+      margin-left: auto; 
+      margin-right: auto;
     }
-    .hero h1 em { color: var(--dourado-cla); font-style: normal; }
-    .hero-linha { width: 50px; height: 2px; background: var(--dourado); margin: 0 auto 1.4rem; border-radius: 2px; position: relative; z-index: 1; }
+    
+    .hero h1 em { 
+      color: var(--dourado-cla); 
+      font-style: normal; 
+    }
+    
+    .hero-linha { 
+      width: 50px; 
+      height: 2px; 
+      background: var(--dourado); 
+      margin: 0 auto 1.4rem; 
+      border-radius: 2px; 
+      position: relative; 
+      z-index: 1; 
+    }
+    
     .hero-sub {
-      font-size: 1rem; color: rgba(255,255,255,0.72);
-      max-width: 520px; margin: 0 auto 2.2rem; line-height: 1.75;
-      position: relative; z-index: 1;
+      font-size: 1rem; 
+      color: rgba(255,255,255,0.72);
+      max-width: 520px; 
+      margin: 0 auto 2.2rem; 
+      line-height: 1.75;
+      position: relative; 
+      z-index: 1;
     }
-    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+    
+    .hero-ctas { 
+      display: flex; 
+      gap: 1rem; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+      position: relative; 
+      z-index: 1; 
+    }
+    
     .btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px;
       background: linear-gradient(135deg, var(--dourado), var(--dourado-cla));
-      color: var(--roxo-escuro); font-size: 15px; font-weight: 700;
-      padding: 14px 28px; border-radius: 30px; text-decoration: none;
+      color: var(--roxo-escuro); 
+      font-size: 15px; 
+      font-weight: 700;
+      padding: 14px 28px; 
+      border-radius: 30px; 
+      text-decoration: none;
       box-shadow: 0 4px 16px rgba(201,168,76,0.35);
+      transition: opacity 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
     }
-    .btn-primary:hover { opacity: 0.92; }
+    
+    .btn-primary:hover { 
+      opacity: 0.92;
+      box-shadow: 0 6px 24px rgba(201,168,76,0.45);
+    }
+    
     .btn-secondary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.12); color: #fff;
-      font-size: 14px; font-weight: 500;
-      padding: 14px 24px; border-radius: 30px; text-decoration: none;
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px;
+      background: rgba(255,255,255,0.12); 
+      color: #fff;
+      font-size: 14px; 
+      font-weight: 500;
+      padding: 14px 24px; 
+      border-radius: 30px; 
+      text-decoration: none;
       border: 1px solid rgba(255,255,255,0.28);
+      transition: background 0.2s;
+      cursor: pointer;
     }
-    .btn-secondary:hover { background: rgba(255,255,255,0.18); }
+    
+    .btn-secondary:hover { 
+      background: rgba(255,255,255,0.18); 
+    }
+    
     .hero-badges {
-      display: flex; justify-content: center; gap: 1.5rem;
-      margin-top: 2.5rem; flex-wrap: wrap; position: relative; z-index: 1;
+      display: flex; 
+      justify-content: center; 
+      gap: 1.5rem;
+      margin-top: 2.5rem; 
+      flex-wrap: wrap; 
+      position: relative; 
+      z-index: 1;
     }
+    
     .hero-badge-item {
-      display: flex; align-items: center; gap: 6px;
-      color: rgba(255,255,255,0.65); font-size: 12px;
+      display: flex; 
+      align-items: center; 
+      gap: 6px;
+      color: rgba(255,255,255,0.65); 
+      font-size: 12px;
     }
-    .hero-badge-item i { color: var(--dourado-cla); font-size: 15px; }
+    
+    .hero-badge-item i { 
+      color: var(--dourado-cla); 
+      font-size: 15px; 
+    }
 
-    /* ── DIVIDER ───────────────────────────────────────────── */
-    .divider { height: 3px; background: linear-gradient(90deg, var(--lilas-claro), var(--dourado), var(--lilas-medio)); }
+    /* ══════════════════════════════════════════════════════════
+       DIVISOR
+       ══════════════════════════════════════════════════════════ */
+    .divider { 
+      height: 3px; 
+      background: linear-gradient(90deg, var(--lilas-claro), var(--dourado), var(--lilas-medio)); 
+    }
 
-    /* ── SEÇÕES ────────────────────────────────────────────── */
-    .section { padding: 4rem 2rem; }
-    .section-alt { background: var(--lilas-suave); }
-    .container { max-width: 820px; margin: 0 auto; }
-    .section-label { font-size: 11px; font-weight: 700; color: var(--dourado); letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .section-title { font-size: 1.8rem; color: var(--lilas); margin-bottom: 0.6rem; line-height: 1.3; }
-    .section-desc { font-size: 0.96rem; color: var(--cinza); line-height: 1.8; margin-bottom: 1.8rem; }
+    /* ══════════════════════════════════════════════════════════
+       SEÇÕES GERAIS
+       ══════════════════════════════════════════════════════════ */
+    .section { 
+      padding: 4rem 2rem; 
+    }
+    
+    .section-alt { 
+      background: var(--lilas-suave); 
+    }
+    
+    .section-bege { 
+      background: var(--bege-claro); 
+    }
+    
+    .section-verde { 
+      background: var(--verde-claro); 
+    }
+    
+    .container { 
+      max-width: 820px; 
+      margin: 0 auto; 
+    }
+    
+    .section-label, .eyebrow { 
+      font-size: 11px; 
+      font-weight: 700; 
+      color: var(--dourado); 
+      letter-spacing: 1.4px; 
+      text-transform: uppercase; 
+      margin-bottom: 0.5rem; 
+    }
+    
+    .section-title, .sec-title { 
+      font-size: 1.8rem; 
+      color: var(--lilas); 
+      margin-bottom: 0.6rem; 
+      line-height: 1.3; 
+    }
+    
+    .section-title span, .sec-title span { 
+      color: var(--dourado); 
+    }
+    
+    .section-desc, .sec-desc { 
+      font-size: 0.96rem; 
+      color: var(--cinza); 
+      line-height: 1.8; 
+      margin-bottom: 1.8rem; 
+    }
 
-    /* ── SOBRE ─────────────────────────────────────────────── */
-    .sobre-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: start; }
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO SOBRE
+       ══════════════════════════════════════════════════════════ */
+    .sobre-layout { 
+      display: grid; 
+      grid-template-columns: 1fr 2fr; 
+      gap: 3rem; 
+      align-items: start; 
+    }
+    
     .sobre-foto {
       background: linear-gradient(135deg, var(--lilas-suave), #E8DFFA);
-      border-radius: 16px; border: 2px solid var(--lilas-claro);
-      padding: 2.5rem 1.5rem; text-align: center;
+      border-radius: 16px; 
+      border: 2px solid var(--lilas-claro);
+      padding: 2.5rem 1.5rem; 
+      text-align: center;
     }
+    
     .avatar-foto {
-      width: 100%; max-width: 220px; height: auto; border-radius: 12px; object-fit: cover; margin-bottom: 0.8rem;
+      width: 100%; 
+      max-width: 220px; 
+      height: auto; 
+      border-radius: 12px; 
+      object-fit: cover; 
+      margin-bottom: 0.8rem;
     }
+    
     .avatar-circle {
-      width: 88px; height: 88px; border-radius: 50%;
+      width: 88px; 
+      height: 88px; 
+      border-radius: 50%;
       background: linear-gradient(135deg, var(--lilas), var(--lilas-medio));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 28px; font-weight: 700; color: #fff;
-      margin: 0 auto 1rem; border: 3px solid var(--dourado);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      font-size: 28px; 
+      font-weight: 700; 
+      color: #fff;
+      margin: 0 auto 1rem; 
+      border: 3px solid var(--dourado);
       font-family: 'Playfair Display', serif;
     }
-    .sobre-foto h3 { font-size: 15px; color: var(--lilas); margin-bottom: 4px; }
-    .sobre-foto p { font-size: 12px; color: var(--cinza-claro); line-height: 1.5; }
+    
+    .sobre-foto h3 { 
+      font-size: 15px; 
+      color: var(--lilas); 
+      margin-bottom: 4px; 
+    }
+    
+    .sobre-foto p { 
+      font-size: 12px; 
+      color: var(--cinza-claro); 
+      line-height: 1.5; 
+    }
+    
     .sobre-tag {
-      display: inline-block; background: var(--branco);
-      border: 1px solid var(--lilas-claro); border-radius: 20px;
-      font-size: 11px; color: var(--lilas); padding: 4px 12px;
-      margin: 4px 2px; font-weight: 500;
+      display: inline-block; 
+      background: var(--branco);
+      border: 1px solid var(--lilas-claro); 
+      border-radius: 20px;
+      font-size: 11px; 
+      color: var(--lilas); 
+      padding: 4px 12px;
+      margin: 4px 2px; 
+      font-weight: 500;
     }
-    .sobre-texto p { font-size: 0.96rem; color: var(--cinza); line-height: 1.85; margin-bottom: 1rem; }
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin-top: 1.5rem; }
+    
+    .sobre-texto p { 
+      font-size: 0.96rem; 
+      color: var(--cinza); 
+      line-height: 1.85; 
+      margin-bottom: 1rem; 
+    }
+    
+    .sobre-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 0.85rem; 
+      margin-top: 1.5rem; 
+    }
+    
     .sobre-card {
-      background: var(--branco); border: 1px solid var(--lilas-claro);
-      border-top: 3px solid var(--dourado); border-radius: 12px; padding: 1.1rem 1.2rem;
+      background: var(--branco); 
+      border: 1px solid var(--lilas-claro);
+      border-top: 3px solid var(--dourado); 
+      border-radius: 12px; 
+      padding: 1.1rem 1.2rem;
       box-shadow: 0 2px 8px var(--sombra);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .sobre-card h4 { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--lilas); margin-bottom: 4px; }
-    .sobre-card p { font-size: 12.5px; color: var(--cinza); line-height: 1.55; }
+    
+    .sobre-card:hover {
+      box-shadow: 0 4px 12px var(--sombra);
+      transform: translateY(-2px);
+    }
+    
+    .sobre-card h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 13px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 4px; 
+    }
+    
+    .sobre-card p { 
+      font-size: 12.5px; 
+      color: var(--cinza); 
+      line-height: 1.55; 
+    }
 
-    /* ── DIF ───────────────────────────────────────────────── */
-    .dif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
-    .dif-item {
-      background: var(--branco); border: 1px solid var(--lilas-claro);
-      border-radius: 14px; padding: 1.6rem 1.3rem; text-align: center;
-      box-shadow: 0 2px 8px var(--sombra);
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO DIFERENCIAIS
+       ══════════════════════════════════════════════════════════ */
+    .dif-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 1rem; 
     }
+    
+    .dif-item {
+      background: var(--branco); 
+      border: 1px solid var(--lilas-claro);
+      border-radius: 14px; 
+      padding: 1.6rem 1.3rem; 
+      text-align: center;
+      box-shadow: 0 2px 8px var(--sombra);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    
+    .dif-item:hover {
+      box-shadow: 0 4px 12px var(--sombra);
+      transform: translateY(-4px);
+    }
+    
     .dif-icon {
-      width: 54px; height: 54px; border-radius: 50%;
-      background: var(--lilas-suave); border: 2px solid var(--lilas-claro);
-      display: flex; align-items: center; justify-content: center;
+      width: 54px; 
+      height: 54px; 
+      border-radius: 50%;
+      background: var(--lilas-suave); 
+      border: 2px solid var(--lilas-claro);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
       margin: 0 auto 0.85rem;
     }
-    .dif-icon i { font-size: 24px; color: var(--lilas); }
-    .dif-item h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--lilas); margin-bottom: 5px; }
-    .dif-item p { font-size: 12.5px; color: var(--cinza); line-height: 1.55; }
+    
+    .dif-icon i { 
+      font-size: 24px; 
+      color: var(--lilas); 
+    }
+    
+    .dif-item h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 5px; 
+    }
+    
+    .dif-item p { 
+      font-size: 12.5px; 
+      color: var(--cinza); 
+      line-height: 1.55; 
+    }
 
-    /* ── SERVIÇOS ──────────────────────────────────────────── */
-    .servicos-grid { display: grid; gap: 1rem; }
-    .servico-item {
-      background: var(--branco); border: 1px solid var(--lilas-claro);
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO "PARA QUEM"
+       ══════════════════════════════════════════════════════════ */
+    .pq-grid { 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 1.2rem; 
+    }
+    
+    .pq-card {
+      background: var(--branco); 
+      border: 1px solid #E8D5E8;
+      border-radius: 14px; 
+      padding: 1.5rem; 
+      display: flex; 
+      gap: 1rem;
+      box-shadow: 0 2px 8px rgba(233, 213, 232, 0.3);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    
+    .pq-card:hover {
+      box-shadow: 0 4px 12px rgba(233, 213, 232, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .pq-ico {
+      width: 50px; 
+      height: 50px; 
+      border-radius: 50%;
+      background: var(--lilas-suave); 
+      border: 2px solid var(--lilas-claro);
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .pq-ico i { 
+      font-size: 24px; 
+      color: var(--lilas); 
+    }
+    
+    .pq-card h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 5px; 
+    }
+    
+    .pq-card p { 
+      font-size: 13px; 
+      color: var(--cinza); 
+      line-height: 1.55; 
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO SERVIÇOS
+       ══════════════════════════════════════════════════════════ */
+    .sv-grid { 
+      display: grid; 
+      gap: 1rem; 
+    }
+    
+    .sv-card {
+      background: var(--branco); 
+      border: 1px solid var(--lilas-claro);
       border-left: 4px solid var(--dourado);
-      border-radius: 0 14px 14px 0; padding: 1.3rem 1.6rem;
-      display: flex; gap: 1rem; align-items: flex-start;
+      border-radius: 0 14px 14px 0; 
+      padding: 1.3rem 1.6rem;
+      display: flex; 
+      gap: 1rem; 
+      align-items: flex-start;
       box-shadow: 0 2px 8px var(--sombra);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .servico-icon {
-      width: 48px; height: 48px; background: var(--lilas-suave);
-      border-radius: 10px; display: flex; align-items: center;
-      justify-content: center; flex-shrink: 0;
+    
+    .sv-card:hover{
+      box-shadow: 0 4px 12px var(--sombra);
+      transform: translateX(4px);
     }
-    .servico-icon i { font-size: 22px; color: var(--lilas); }
-    .servico-item h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--lilas); margin-bottom: 5px; }
-    .servico-item p { font-size: 13px; color: var(--cinza); line-height: 1.65; }
-    .modalidades { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
-    .mod-card {
-      border: 1.5px solid var(--lilas-claro); border-radius: 14px;
-      padding: 1.5rem; background: var(--branco); text-align: center;
+    
+    .sv-ico {
+      width: 48px; 
+      height: 48px; 
+      background: var(--lilas-suave);
+      border-radius: 10px; 
+      display: flex; 
+      align-items: center;
+      justify-content: center; 
+      flex-shrink: 0;
+    }
+    
+    .sv-ico i { 
+      font-size: 22px; 
+      color: var(--lilas); 
+    }
+    
+    .sv-card h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 5px; 
+    }
+    
+    .sv-card p { 
+      font-size: 13px; 
+      color: var(--cinza); 
+      line-height: 1.65; 
+    }
+    
+    .modal-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 1rem; 
+      margin-top: 1.5rem; 
+    }
+    
+    .modal-card {
+      border: 1.5px solid var(--lilas-claro); 
+      border-radius: 14px;
+      padding: 1.5rem; 
+      background: var(--branco); 
+      text-align: center;
       box-shadow: 0 2px 8px var(--sombra);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .mod-card i { font-size: 30px; color: var(--dourado); display: block; margin-bottom: 0.6rem; }
-    .mod-card h4 { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--lilas); margin-bottom: 4px; }
-    .mod-card p { font-size: 13px; color: var(--cinza); }
+    
+    .modal-card:hover{
+      box-shadow: 0 4px 12px var(--sombra);
+      transform: translateY(-2px);
+    }
+    
+    .modal-card i { 
+      font-size: 30px; 
+      color: var(--dourado); 
+      display: block; 
+      margin-bottom: 0.6rem; 
+    }
+    
+    .modal-card h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 4px; 
+    }
+    
+    .modal-card p { 
+      font-size: 13px; 
+      color: var(--cinza); 
+    }
 
-    /* ── DEPOIMENTOS ───────────────────────────────────────── */
-    .depo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 0.5rem; }
-    .depo-card {
-      background: var(--branco); border: 1px solid var(--lilas-claro);
-      border-radius: 14px; padding: 1.5rem;
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO "COMO FUNCIONA"
+       ══════════════════════════════════════════════════════════ */
+    .cf-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .cf-card {
+      background: var(--branco); 
+      border: 2px solid var(--lilas-claro);
+      border-radius: 14px; 
+      padding: 2rem 1.5rem; 
+      text-align: center;
       box-shadow: 0 2px 10px var(--sombra);
       position: relative;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
     }
-    .depo-aspas { font-size: 48px; color: var(--lilas-claro); line-height: 1; font-family: Georgia, serif; position: absolute; top: 10px; left: 16px; }
-    .depo-texto { font-size: 13.5px; color: var(--cinza); line-height: 1.75; margin-top: 1.4rem; font-style: italic; }
-    .depo-autor { margin-top: 1rem; display: flex; align-items: center; gap: 10px; }
-    .depo-avatar {
-      width: 40px; height: 40px; border-radius: 50%;
-      background: linear-gradient(135deg, var(--lilas-suave), var(--lilas-claro));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 14px; font-weight: 700; color: var(--lilas);
-      border: 2px solid var(--lilas-claro); flex-shrink: 0;
+    
+    .cf-card:hover {
+      box-shadow: 0 6px 20px var(--sombra);
+      transform: translateY(-6px);
+      border-color: var(--dourado);
     }
-    .depo-nome { font-size: 13px; font-weight: 600; color: var(--lilas); }
-    .depo-desc { font-size: 11.5px; color: var(--cinza-claro); }
-    .depo-estrelas { color: var(--dourado); font-size: 13px; margin-bottom: 2px; }
-    .depo-aviso { font-size: 11px; color: var(--cinza-claro); text-align: center; margin-top: 1rem; font-style: italic; }
+    
+    .cf-number {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--lilas), var(--lilas-medio));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0 auto 1rem;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .cf-card h3 { 
+      font-size: 1.3rem; 
+      color: var(--lilas); 
+      margin-bottom: 0.8rem;
+    }
+    
+    .cf-card p { 
+      font-size: 13px; 
+      color: var(--cinza); 
+      line-height: 1.7;
+    }
+    
+    .cf-icon {
+      font-size: 36px;
+      color: var(--dourado);
+      margin-bottom: 1rem;
+    }
 
-    /* ── LOCALIZAÇÃO ───────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO BENEFÍCIOS
+       ══════════════════════════════════════════════════════════ */
+    .benef-grid { 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 1.2rem; 
+    }
+    
+    .benef-card {
+      background: var(--branco); 
+      border: 1px solid #D5E8E0;
+      border-radius: 14px; 
+      padding: 1.5rem; 
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(213, 232, 224, 0.4);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    
+    .benef-card:hover{
+      box-shadow: 0 4px 12px rgba(213, 232, 224, 0.6);
+      transform: translateY(-4px);
+    }
+    
+    .benef-ico {
+      width: 54px; 
+      height: 54px; 
+      border-radius: 50%;
+      background: rgba(232, 244, 240, 0.6); 
+      border: 2px solid #D5E8E0;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      margin: 0 auto 0.8rem;
+    }
+    
+    .benef-ico i { 
+      font-size: 26px; 
+      color: #40a68a; 
+    }
+    
+    .benef-card h4 { 
+      font-family: 'Inter', sans-serif; 
+      font-size: 14px; 
+      font-weight: 600; 
+      color: var(--lilas); 
+      margin-bottom: 5px; 
+    }
+    
+    .benef-card p { 
+      font-size: 13px; 
+      color: var(--cinza); 
+      line-height: 1.55; 
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO LOCALIZAÇÃO
+       ══════════════════════════════════════════════════════════ */
     .loc-box {
-      background: var(--branco); border: 1.5px solid var(--lilas-claro);
-      border-radius: 14px; padding: 2rem; text-align: center;
+      background: var(--branco); 
+      border: 1.5px solid var(--lilas-claro);
+      border-radius: 14px; 
+      padding: 2rem; 
+      text-align: center;
       box-shadow: 0 2px 8px var(--sombra);
     }
-    .loc-box i { font-size: 36px; color: var(--dourado); display: block; margin-bottom: 0.75rem; }
-    .loc-box strong { color: var(--lilas); font-size: 15px; }
-    .loc-box p { font-size: 14px; color: var(--cinza); line-height: 1.7; }
+    
+    .loc-box i { 
+      font-size: 36px; 
+      color: var(--dourado); 
+      display: block; 
+      margin-bottom: 0.75rem; 
+    }
+    
+    .loc-box strong { 
+      color: var(--lilas); 
+      font-size: 15px; 
+    }
+    
+    .loc-box p { 
+      font-size: 14px; 
+      color: var(--cinza); 
+      line-height: 1.7; 
+    }
 
-    /* ── CONTATO ───────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       SEÇÃO CONTATO
+       ══════════════════════════════════════════════════════════ */
     .cta-box {
       background: linear-gradient(135deg, #2D1F4E, #5B3D8A);
-      border-radius: 16px; padding: 2.5rem 2rem;
-      text-align: center; margin-bottom: 2rem;
+      border-radius: 16px; 
+      padding: 2.5rem 2rem;
+      text-align: center; 
+      margin-bottom: 2rem;
     }
-    .cta-box h3 { font-size: 1.4rem; color: #fff; margin-bottom: 0.6rem; }
-    .cta-box p { font-size: 14px; color: rgba(255,255,255,0.72); margin-bottom: 1.5rem; line-height: 1.7; }
+    
+    .cta-box h3 { 
+      font-size: 1.4rem; 
+      color: #fff; 
+      margin-bottom: 0.6rem; 
+    }
+    
+    .cta-box p { 
+      font-size: 14px; 
+      color: rgba(255,255,255,0.72); 
+      margin-bottom: 1.5rem; 
+      line-height: 1.7; 
+    }
+    
     .wa-btn-grande {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: #25D366; color: #fff; font-size: 16px; font-weight: 700;
-      padding: 16px 36px; border-radius: 30px; text-decoration: none;
+      display: inline-flex; 
+      align-items: center; 
+      gap: 10px;
+      background: #25D366; 
+      color: #fff; 
+      font-size: 16px; 
+      font-weight: 700;
+      padding: 16px 36px; 
+      border-radius: 30px; 
+      text-decoration: none;
       box-shadow: 0 4px 18px rgba(37,211,102,0.4);
+      transition: background 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
     }
-    .wa-btn-grande:hover { background: #1da851; }
-    .wa-btn-grande i { font-size: 22px; }
-    .form-sep { margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--lilas-claro); }
-    .form-sep h3 { font-size: 1.2rem; color: var(--lilas); margin-bottom: 4px; }
-    .form-sep > p { font-size: 13.5px; color: var(--cinza); margin-bottom: 1.5rem; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 5px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .form-group label { font-size: 11.5px; color: var(--lilas-medio); font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
-    .form-group input, .form-group select, .form-group textarea {
-      font-size: 14px; padding: 12px 14px; border-radius: 10px;
-      border: 1.5px solid var(--lilas-claro); background: var(--branco);
-      color: var(--roxo-escuro); width: 100%; font-family: 'Inter', sans-serif;
+    
+    .wa-btn-grande:hover { 
+      background: #1da851;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.5);
+    }
+    
+    .wa-btn-grande i { 
+      font-size: 22px; 
+    }
+    
+    .form-sep { 
+      margin-top: 2.5rem; 
+      padding-top: 2.5rem; 
+      border-top: 1px solid var(--lilas-claro); 
+    }
+    
+    .form-sep h3 { 
+      font-size: 1.2rem; 
+      color: var(--lilas); 
+      margin-bottom: 4px; 
+    }
+    
+    .form-sep > p { 
+      font-size: 13.5px; 
+      color: var(--cinza); 
+      margin-bottom: 1.5rem; 
+    }
+    
+    .form-grid { 
+      display: grid; 
+      grid-template-columns: 1fr 1fr; 
+      gap: 14px; 
+    }
+    
+    .form-group { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 5px; 
+    }
+    
+    .form-group.full { 
+      grid-column: 1 / -1; 
+    }
+    
+    .form-group label { 
+      font-size: 11.5px; 
+      color: var(--lilas-medio); 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 0.6px; 
+    }
+    
+    .form-group input, 
+    .form-group select, 
+    .form-group textarea {
+      font-size: 14px; 
+      padding: 12px 14px; 
+      border-radius: 10px;
+      border: 1.5px solid var(--lilas-claro); 
+      background: var(--branco);
+      color: var(--roxo-escuro); 
+      width: 100%; 
+      font-family: 'Inter', sans-serif;
       transition: border-color 0.2s;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      outline: none; border-color: var(--lilas-medio);
+    
+    .form-group input:focus, 
+    .form-group select:focus, 
+    .form-group textarea:focus {
+      outline: none; 
+      border-color: var(--lilas-medio);
       box-shadow: 0 0 0 3px rgba(155,125,200,0.18);
     }
-    .form-group textarea { resize: vertical; min-height: 100px; }
+    
+    .form-group textarea { 
+      resize: vertical; 
+      min-height: 100px; 
+    }
+    
     .submit-btn {
-      display: block; width: 100%;
+      display: block; 
+      width: 100%;
       background: linear-gradient(135deg, var(--lilas), var(--lilas-medio));
-      color: #fff; font-size: 15px; font-weight: 700;
-      padding: 15px; border-radius: 30px; border: none;
-      cursor: pointer; margin-top: 1.25rem;
+      color: #fff; 
+      font-size: 15px; 
+      font-weight: 700;
+      padding: 15px; 
+      border-radius: 30px; 
+      border: none;
+      cursor: pointer; 
+      margin-top: 1.25rem;
       font-family: 'Inter', sans-serif;
       box-shadow: 0 4px 14px rgba(107,79,160,0.3);
+      transition: opacity 0.2s, box-shadow 0.2s;
     }
-    .submit-btn:hover { opacity: 0.9; }
+    
+    .submit-btn:hover { 
+      opacity: 0.9;
+      box-shadow: 0 6px 20px rgba(107,79,160,0.4);
+    }
+    
     .success-msg {
-      display: none; background: var(--lilas-suave);
-      border: 1px solid var(--lilas-claro); border-radius: 10px;
-      padding: 14px; font-size: 14px; color: var(--lilas);
-      text-align: center; margin-top: 1rem;
+      display: none; 
+      background: var(--lilas-suave);
+      border: 1px solid var(--lilas-claro); 
+      border-radius: 10px;
+      padding: 14px; 
+      font-size: 14px; 
+      color: var(--lilas);
+      text-align: center; 
+      margin-top: 1rem;
+      animation: slideIn 0.3s ease-out;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* ── FOOTER ────────────────────────────────────────────── */
+    /* ══════════════════════════════════════════════════════════
+       RODAPÉ
+       ══════════════════════════════════════════════════════════ */
     footer {
       background: linear-gradient(135deg, #1E1338, #2D1F4E);
-      color: var(--lilas-claro); text-align: center;
-      padding: 3rem 2rem; font-size: 13px;
+      color: var(--lilas-claro); 
+      text-align: center;
+      padding: 3rem 2rem; 
+      font-size: 13px;
+      margin-top: 4rem;
     }
-    footer strong { color: var(--dourado-cla); }
-    footer a { color: var(--dourado-cla); text-decoration: none; }
-    footer p { margin-top: 6px; }
-    .footer-divider { width: 40px; height: 2px; background: var(--dourado); margin: 1rem auto; border-radius: 2px; }
+    
+    footer strong { 
+      color: var(--dourado-cla); 
+    }
+    
+    footer a { 
+      color: var(--dourado-cla); 
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    
+    footer a:hover {
+      opacity: 0.8;
+    }
+    
+    footer p { 
+      margin-top: 6px; 
+    }
+    
+    .footer-divider { 
+      width: 40px; 
+      height: 2px; 
+      background: var(--dourado); 
+      margin: 1rem auto; 
+      border-radius: 2px; 
+    }
 
-    /* ── RESPONSIVO ────────────────────────────────────────── */
-    @media (max-width: 680px) {
-      nav { padding: 0.75rem 1.2rem; }
-      .nav-links { display: none; }
-      .hero { padding: 3.5rem 1.5rem 4rem; }
-      .section { padding: 3rem 1.5rem; }
-      .sobre-layout { grid-template-columns: 1fr; gap: 1.5rem; }
-      .sobre-grid { grid-template-columns: 1fr; }
-      .dif-grid { grid-template-columns: 1fr; }
-      .modalidades { grid-template-columns: 1fr; }
-      .depo-grid { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: 1; }
-      .hero-ctas { flex-direction: column; align-items: center; }
-      .wa-fixo { bottom: 16px; right: 16px; }
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVIDADE - TABLET (768px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 768px) {
+      nav { 
+        padding: 0.75rem 1.2rem; 
+      }
+      
+      .nav-links { 
+        display: none; 
+      }
+      
+      .hero { 
+        padding: 3.5rem 1.5rem 4rem; 
+      }
+      
+      .section { 
+        padding: 3rem 1.5rem; 
+      }
+      
+      .sobre-layout { 
+        grid-template-columns: 1fr; 
+        gap: 1.5rem; 
+      }
+      
+      .sobre-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .dif-grid { 
+        grid-template-columns: 1fr 1fr; 
+      }
+      
+      .pq-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .cf-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      
+      .modal-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .benef-grid { 
+        grid-template-columns: 1fr 1fr; 
+      }
+      
+      .form-grid { 
+        grid-template-columns: 1fr; 
+      }
+      
+      .form-group.full { 
+        grid-column: 1; 
+      }
+      
+      .hero-ctas { 
+        flex-direction: column; 
+        align-items: center; 
+      }
+      
+      .wa-fixo { 
+        bottom: 16px; 
+        right: 16px; 
+      }
+      
+      .section-title,
+      .sec-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       RESPONSIVIDADE - MOBILE (480px)
+       ══════════════════════════════════════════════════════════ */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .hero-sub {
+        font-size: 0.9rem;
+      }
+
+      .hero-badges {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      .hero-badge-item {
+        font-size: 11px;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        font-size: 13px;
+        padding: 12px 20px;
+      }
+
+      .wa-btn-grande {
+        font-size: 14px;
+        padding: 12px 28px;
+      }
+
+      .dif-grid { 
+        grid-template-columns: 1fr; 
+      }
+
+      .cf-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .benef-grid { 
+        grid-template-columns: 1fr; 
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- BOTÃO WA FIXO -->
-<a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="wa-fixo" target="_blank" aria-label="Falar no WhatsApp">
+<!-- ════════════════════════════════════════════════════════════
+     BOTÃO WHATSAPP FLUTUANTE
+     ════════════════════════════════════════════════════════════ -->
+<a href="https://wa.me/55984042188?text=Olá%20Elis,%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais" 
+   class="wa-fixo" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   aria-label="Abrir WhatsApp">
   <i class="ti ti-brand-whatsapp"></i>
   <span class="wa-fixo-tooltip">Agendar pelo WhatsApp</span>
 </a>
 
-<!-- NAV -->
-<nav>
+<!-- ════════════════════════════════════════════════════════════
+     NAVEGAÇÃO
+     ════════════════════════════════════════════════════════════ -->
+<nav role="navigation" aria-label="Navegação principal">
   <div class="nav-logo">
     Elis Regina
     <span>Psicopedagoga</span>
@@ -351,22 +1197,30 @@
   <div class="nav-links">
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
-    <a href="#depoimentos">Depoimentos</a>
+    <a href="#como-funciona">Como Funciona</a>
     <a href="#contato">Contato</a>
   </div>
-  <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20agendar%20um%20atendimento." class="nav-wa" target="_blank">
+  <a href="https://wa.me/55984042188?text=Olá%20Elis,%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais" 
+     class="nav-wa" 
+     target="_blank" 
+     rel="noopener noreferrer">
     <i class="ti ti-brand-whatsapp" style="font-size:15px;"></i> Agendar
   </a>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <p class="hero-eyebrow">Psicopedagogia</p>
+<!-- ════════════════════════════════════════════════════════════
+     HERO SECTION
+     ════════════════════════════════════════════════════════════ -->
+<section class="hero" role="banner">
+  <p class="hero-eyebrow">Psicopedagogia em Sapiranga</p>
   <h1>Seu filho tem dificuldade<br>para aprender? <em>Existe solução.</em></h1>
   <div class="hero-linha"></div>
   <p class="hero-sub">Atendimentos psicopedagógicos individualizados para crianças, jovens e adultos. Identificamos a raiz das dificuldades de aprendizagem e construímos um caminho personalizado para cada pessoa.</p>
   <div class="hero-ctas">
-    <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="btn-primary" target="_blank">
+    <a href="https://wa.me/55984042188?text=Olá%20Elis,%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais" 
+       class="btn-primary" 
+       target="_blank" 
+       rel="noopener noreferrer">
       <i class="ti ti-brand-whatsapp"></i> Agendar avaliação agora
     </a>
     <a href="#servicos" class="btn-secondary">
@@ -378,18 +1232,20 @@
     <span class="hero-badge-item"><i class="ti ti-video"></i> Atendimento online</span>
     <span class="hero-badge-item"><i class="ti ti-certificate"></i> Pós-graduação em Psicopedagogia</span>
   </div>
-</div>
+</section>
 
 <div class="divider"></div>
 
-<!-- SOBRE -->
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO SOBRE
+     ════════════════════════════════════════════════════════════ -->
 <section class="section" id="sobre">
   <div class="container">
     <p class="section-label">Quem sou eu</p>
     <h2 class="section-title">Sobre Elis Regina</h2>
     <div class="sobre-layout">
       <div class="sobre-foto">
-        <img src="Elis Regina.jpeg" alt="Elis Regina Bairros Rodrigues" class="avatar-foto">
+        <img src="Elis Regina.jpeg" alt="Elis Regina Bairros Rodrigues - Psicopedagoga" class="avatar-foto">
         <h3>Elis Regina Bairros Rodrigues</h3>
         <p>Psicopedagoga<br>Sapiranga, RS</p>
         <div style="margin-top:1rem;">
@@ -424,7 +1280,9 @@
   </div>
 </section>
 
-<!-- DIFERENCIAIS -->
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO DIFERENCIAIS
+     ════════════════════════════════════════════════════════════ -->
 <section class="section section-alt">
   <div class="container">
     <p class="section-label">Por que escolher</p>
@@ -450,42 +1308,92 @@
   </div>
 </section>
 
-<!-- SERVIÇOS -->
-<section class="section" id="servicos">
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO "PARA QUEM"
+     ════════════════════════════════════════════════════════════ -->
+<section class="section section-bege" id="para-quem">
   <div class="container">
-    <p class="section-label">O que ofereço</p>
-    <h2 class="section-title">Serviços</h2>
-    <p class="section-desc">Os atendimentos psicopedagógicos são indicados para quem enfrenta dificuldades de leitura, escrita, concentração, memória, rendimento escolar, ou qualquer outra barreira no aprendizado.</p>
-    <div class="servicos-grid">
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-clipboard-text"></i></div>
+    <p class="eyebrow">Para quem é o atendimento</p>
+    <h2 class="sec-title">Quem pode ser <span>atendido</span></h2>
+    <p class="sec-desc">O atendimento psicopedagógico é indicado para pessoas de qualquer idade que enfrentem dificuldades no aprendizado ou no desenvolvimento.</p>
+    <div class="pq-grid">
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-book-off"></i></div>
         <div>
-          <h4>Avaliação psicopedagógica</h4>
-          <p>Mapeamento detalhado das dificuldades de aprendizagem, considerando aspectos cognitivos e emocionais. A avaliação é o ponto de partida para um plano eficaz.</p>
+          <h4>Dificuldades de aprendizagem</h4>
+          <p>Crianças e jovens com dificuldades em leitura, escrita ou matemática que não avançam no ritmo esperado para a idade.</p>
         </div>
       </div>
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-route"></i></div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-brain"></i></div>
+        <div>
+          <h4>TDAH</h4>
+          <p>Pessoas com Transtorno de Déficit de Atenção e Hiperatividade que precisam de estratégias para foco, organização e desempenho.</p>
+        </div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-puzzle"></i></div>
+        <div>
+          <h4>TEA — Transtorno do Espectro Autista</h4>
+          <p>Atendimento especializado com foco no desenvolvimento cognitivo, comunicação e aprendizagem.</p>
+        </div>
+      </div>
+      <div class="pq-card">
+        <div class="pq-ico"><i class="ti ti-user"></i></div>
+        <div>
+          <h4>Adultos</h4>
+          <p>Adultos com dificuldades de aprendizagem não identificadas na infância, problemas de memória ou concentração.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO SERVIÇOS
+     ════════════════════════════════════════════════════════════ -->
+<section class="section" id="servicos">
+  <div class="container">
+    <p class="eyebrow">O que ofereço</p>
+    <h2 class="sec-title">Serviços <span>psicopedagógicos</span></h2>
+    <p class="sec-desc">Atendimentos planejados individualmente, do diagnóstico ao acompanhamento contínuo.</p>
+    <div class="sv-grid">
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-clipboard-text"></i></div>
+        <div>
+          <h4>Avaliação psicopedagógica</h4>
+          <p>Mapeamento detalhado das dificuldades de aprendizagem, considerando aspectos cognitivos e emocionais. A avaliação identifica a raiz do problema e orienta todo o processo seguinte.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-route"></i></div>
         <div>
           <h4>Intervenção psicopedagógica</h4>
           <p>Atendimento contínuo com estratégias específicas para desenvolver habilidades, superar bloqueios e transformar a relação do aluno com o aprendizado.</p>
         </div>
       </div>
-      <div class="servico-item">
-        <div class="servico-icon"><i class="ti ti-chart-line"></i></div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-chart-line"></i></div>
         <div>
           <h4>Acompanhamento individualizado</h4>
-          <p>Sessões regulares com monitoramento do progresso e ajustes constantes no método, garantindo que o aluno continue evoluindo no próprio ritmo.</p>
+          <p>Sessões regulares com monitoramento do progresso e ajustes constantes no plano de atendimento, garantindo que o aluno continue evoluindo no próprio ritmo.</p>
+        </div>
+      </div>
+      <div class="sv-card">
+        <div class="sv-ico"><i class="ti ti-users"></i></div>
+        <div>
+          <h4>Orientação para pais e escola</h4>
+          <p>Suporte direto às famílias e, quando necessário, articulação com a escola para que as estratégias psicopedagógicas sejam aplicadas em todos os contextos do aluno.</p>
         </div>
       </div>
     </div>
-    <div class="modalidades">
-      <div class="mod-card">
+    <div class="modal-grid">
+      <div class="modal-card">
         <i class="ti ti-building-community"></i>
         <h4>Presencial</h4>
-        <p>Atendimentos em Sapiranga, RS, na Rua General Lima e Silva, 42, Sala C.</p>
+        <p>Rua General Lima e Silva, 42, Sala C — Sapiranga, RS</p>
       </div>
-      <div class="mod-card">
+      <div class="modal-card">
         <i class="ti ti-video"></i>
         <h4>Online</h4>
         <p>Sessões por videochamada para qualquer cidade do Brasil, com a mesma qualidade do atendimento presencial.</p>
@@ -494,67 +1402,83 @@
   </div>
 </section>
 
-<!-- DEPOIMENTOS -->
-<section class="section section-alt" id="depoimentos">
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO "COMO FUNCIONA" (NOVO)
+     ════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="como-funciona">
   <div class="container">
-    <p class="section-label">Histórias reais</p>
-    <h2 class="section-title">O que as famílias dizem</h2>
-    <p class="section-desc">Cada aluno tem uma história. Abaixo, algumas das transformações acompanhadas ao longo dos atendimentos psicopedagógicos.</p>
-    <div class="depo-grid">
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Minha filha tinha 9 anos e já dizia que era burra. Depois de alguns meses com a Elis, ela passou a gostar de ler. Ver essa transformação foi emocionante demais.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">AM</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Ana Martins</div>
-            <div class="depo-desc">Mãe de aluna, 9 anos</div>
-          </div>
-        </div>
+    <p class="section-label">Processo de atendimento</p>
+    <h2 class="section-title">Como <span>funciona</span></h2>
+    <p class="section-desc">Cada atendimento segue um processo estruturado, pensado para oferecer suporte completo ao aluno e à sua família.</p>
+    <div class="cf-grid">
+      <div class="cf-card">
+        <div class="cf-number">1</div>
+        <div class="cf-icon"><i class="ti ti-users-group"></i></div>
+        <h3>Anamnese</h3>
+        <p>Entrevista inicial de acolhimento com os pais e responsáveis. Conhecer a história, as preocupações e os objetivos da família é o primeiro passo para compreender o aluno.</p>
       </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Eu achava que meu filho era preguiçoso. A Elis identificou dificuldades reais que ninguém tinha visto antes. O acompanhamento mudou completamente a vida dele na escola.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">RS</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Roberto Silva</div>
-            <div class="depo-desc">Pai de aluno, 14 anos</div>
-          </div>
-        </div>
+      <div class="cf-card">
+        <div class="cf-number">2</div>
+        <div class="cf-icon"><i class="ti ti-test-pipe"></i></div>
+        <h3>Avaliação</h3>
+        <p>Sessões lúdicas e técnicas com a criança ou jovem. Utilizamos instrumentos e atividades que permitem mapear o funcionamento cognitivo, emocional e comportamental.</p>
       </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Fiz o atendimento online morando em Porto Alegre. A qualidade foi a mesma. A Elis me fez sentir que eu estava sendo realmente ouvida, não só avaliada.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">CF</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Camila Ferreira</div>
-            <div class="depo-desc">Adulta, atendimento online</div>
-          </div>
-        </div>
-      </div>
-      <div class="depo-card">
-        <span class="depo-aspas">"</span>
-        <p class="depo-texto">Nos primeiros 15 minutos da avaliação, a Elis já percebeu coisas que professores de anos não tinham notado. O trabalho dela é impressionante.</p>
-        <div class="depo-autor">
-          <div class="depo-avatar">LO</div>
-          <div>
-            <div class="depo-estrelas">★★★★★</div>
-            <div class="depo-nome">Luciana Oliveira</div>
-            <div class="depo-desc">Mãe de aluno, 10 anos</div>
-          </div>
-        </div>
+      <div class="cf-card">
+        <div class="cf-number">3</div>
+        <div class="cf-icon"><i class="ti ti-files"></i></div>
+        <h3>Devolutiva</h3>
+        <p>Entrega do relatório detalhado e alinhamento com a escola. Compartilhamos os achados e as recomendações práticas para apoiar o aprendizado em todos os ambientes.</p>
       </div>
     </div>
-    <p class="depo-aviso">Depoimentos ilustrativos. Os nomes foram alterados para preservar a privacidade dos atendidos.</p>
   </div>
 </section>
 
-<!-- LOCALIZAÇÃO -->
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO BENEFÍCIOS
+     ════════════════════════════════════════════════════════════ -->
+<section class="section section-verde" id="beneficios">
+  <div class="container">
+    <p class="eyebrow">O que muda na prática</p>
+    <h2 class="sec-title">Benefícios do <span>acompanhamento</span></h2>
+    <p class="sec-desc">O atendimento psicopedagógico gera transformações que vão muito além da sala de aula.</p>
+    <div class="benef-grid">
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-trending-up"></i></div>
+        <h4>Melhor desempenho escolar</h4>
+        <p>O aluno entende como aprende e desenvolve estratégias que funcionam para ele.</p>
+      </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-focus"></i></div>
+        <h4>Mais foco e organização</h4>
+        <p>Habilidades de atenção, planejamento e execução de tarefas se desenvolvem com o acompanhamento.</p>
+      </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-heart"></i></div>
+        <h4>Apoio emocional</h4>
+        <p>O aluno se reconecta com a própria capacidade e recupera a confiança em si mesmo.</p>
+      </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-users"></i></div>
+        <h4>Família mais preparada</h4>
+        <p>Pais e responsáveis entendem melhor o filho e sabem como apoiá-lo no dia a dia.</p>
+      </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-school"></i></div>
+        <h4>Integração com a escola</h4>
+        <p>A escola recebe orientações práticas para criar um ambiente mais adequado ao aluno.</p>
+      </div>
+      <div class="benef-card">
+        <div class="benef-ico"><i class="ti ti-star"></i></div>
+        <h4>Autoestima fortalecida</h4>
+        <p>Cada avanço é reconhecido. O aluno aprende a valorizar o próprio progresso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO LOCALIZAÇÃO
+     ════════════════════════════════════════════════════════════ -->
 <section class="section" id="localizacao">
   <div class="container">
     <p class="section-label">Onde fica</p>
@@ -569,27 +1493,38 @@
   </div>
 </section>
 
-<!-- CONTATO -->
-<section class="section section-alt" id="contato">
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO CTA ANTES DO FOOTER
+     ════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" style="padding: 3rem 2rem;">
+  <div class="container" style="text-align: center;">
+    <h2 class="section-title" style="margin-bottom: 1.2rem;">Pronto para começar?</h2>
+    <p class="section-desc" style="margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Agende uma conversa com Elis Regina e descubra como a psicopedagogia pode transformar a história do aprendizado.</p>
+    <a href="https://wa.me/55984042188?text=Olá%20Elis,%20vi%20seu%20site%20e%20gostaria%20de%20saber%20mais" 
+       class="wa-btn-grande" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      <i class="ti ti-brand-whatsapp"></i> Falar agora no WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════════
+     SEÇÃO CONTATO COM FORMULÁRIO
+     ════════════════════════════════════════════════════════════ -->
+<section class="section" id="contato">
   <div class="container">
-    <div class="cta-box">
-      <h3>Pronto para dar o primeiro passo?</h3>
-      <p>Uma conversa de 15 minutos já pode esclarecer muita coisa. Entre em contato agora pelo WhatsApp e entendo como posso ajudar.</p>
-      <a href="https://wa.me/55984042188?text=Ol%C3%A1%2C%20Elis!%20Gostaria%20de%20saber%20mais%20sobre%20os%20atendimentos%20e%20agendar%20uma%20conversa." class="wa-btn-grande" target="_blank">
-        <i class="ti ti-brand-whatsapp"></i> Falar agora no WhatsApp
-      </a>
-    </div>
     <div class="form-sep">
       <h3>Ou preencha o formulário</h3>
       <p>Preencha os dados abaixo e entro em contato em até 24 horas.</p>
       <div class="form-grid">
         <div class="form-group">
           <label for="nome">Nome completo</label>
-          <input type="text" id="nome" placeholder="Seu nome" />
+          <input type="text" id="nome" placeholder="Seu nome" required />
         </div>
         <div class="form-group">
           <label for="telefone">Telefone / WhatsApp</label>
-          <input type="tel" id="telefone" placeholder="(00) 00000-0000" />
+          <input type="tel" id="telefone" placeholder="(00) 00000-0000" required />
         </div>
         <div class="form-group">
           <label for="email">E-mail</label>
@@ -627,31 +1562,53 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- ════════════════════════════════════════════════════════════
+     RODAPÉ
+     ════════════════════════════════════════════════════════════ -->
+<footer role="contentinfo">
   <p><strong>Elis Regina Bairros Rodrigues</strong></p>
   <p>Psicopedagoga</p>
   <div class="footer-divider"></div>
   <p>Rua General Lima e Silva, 42, Sala C, CEP 93800-060, Sapiranga, RS</p>
-  <p style="margin-top:10px;"><a href="https://wa.me/55984042188">(55) 98404-2188</a></p>
+  <p style="margin-top:10px;"><a href="https://wa.me/55984042188" target="_blank" rel="noopener noreferrer">(55) 98404-2188</a></p>
   <p style="margin-top:16px; font-size:11px; color:rgba(255,255,255,0.3);">Psicopedagogia em Sapiranga e online</p>
 </footer>
 
+<!-- ════════════════════════════════════════════════════════════
+     SCRIPT - FUNÇÃO DE ENVIO DE FORMULÁRIO
+     ════════════════════════════════════════════════════════════ -->
 <script>
+  /**
+   * Função para enviar formulário via WhatsApp
+   * Valida campos obrigatórios e redireciona para WhatsApp com mensagem estruturada
+   */
   function enviarFormulario() {
     const nome = document.getElementById('nome').value.trim();
     const telefone = document.getElementById('telefone').value.trim();
-    if (!nome || !telefone) { alert('Por favor, preencha ao menos seu nome e telefone.'); return; }
+    
+    // Validação de campos obrigatórios
+    if (!nome || !telefone) {
+      alert('Por favor, preencha ao menos seu nome e telefone.');
+      return;
+    }
+    
     const mensagem = document.getElementById('mensagem').value.trim();
     const servico = document.getElementById('servico').value;
     const modalidade = document.getElementById('modalidade').value;
+    
+    // Construção da mensagem
     let texto = `Olá, Elis! Me chamo ${nome} e gostaria de agendar um atendimento.`;
     if (servico) texto += ` Interesse: ${servico}.`;
     if (modalidade) texto += ` Modalidade: ${modalidade}.`;
     if (mensagem) texto += ` Situação: ${mensagem}`;
+    
+    // Redirecionamento para WhatsApp
     window.open(`https://wa.me/55984042188?text=${encodeURIComponent(texto)}`, '_blank');
+    
+    // Mostrar mensagem de sucesso
     document.getElementById('success-msg').style.display = 'block';
   }
 </script>
+
 </body>
 </html>
